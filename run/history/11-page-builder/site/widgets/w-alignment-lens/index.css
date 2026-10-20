@@ -1,0 +1,115 @@
+/* w-alignment-lens: everything scoped to the mount; tokens only (no literal colours).
+   Reuses the page's shared chip vocabulary (.chip, .chip-word, .chip-role, .chip-gloss, .erg, .word). */
+[data-widget="w-alignment-lens"] { position: relative; }
+[data-widget="w-alignment-lens"] .lens {
+  position: relative; display: flex; flex-direction: column; gap: var(--sp-1);
+  height: 372px; padding: var(--sp-2) var(--sp-3) var(--sp-2);
+  background: var(--surface); border: var(--border); border-radius: var(--radius-2); box-shadow: var(--shadow-hard);
+  background-image: radial-gradient(var(--line-soft) 1px, transparent 1.5px); background-size: 16px 16px; background-position: 8px 8px;
+}
+
+/* header: mode label in the corner */
+[data-widget="w-alignment-lens"] .lens-head { display: flex; align-items: center; min-height: 32px; flex: none; }
+[data-widget="w-alignment-lens"] .lens-mode {
+  font: 800 var(--fs-small)/1 var(--font-display); letter-spacing: -0.005em; color: var(--ink);
+  background: var(--bg); border: var(--border); border-radius: 999px; padding: 6px 12px; box-shadow: var(--shadow-hard-sm);
+}
+
+/* stage: two sentence rows that re-align on the shared role */
+[data-widget="w-alignment-lens"] .lens-stage { position: relative; flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center;
+  min-height: 0; overflow: hidden; }
+[data-widget="w-alignment-lens"] .lens-comp { position: relative; display: flex; flex-direction: column; gap: 30px; padding: 26px 0 6px;
+  transform-origin: left center; }
+[data-widget="w-alignment-lens"] .lens-row { position: relative; z-index: 1; display: flex; align-items: flex-start; gap: 14px;
+  width: max-content; flex-wrap: nowrap; }
+[data-widget="w-alignment-lens"] .lens-chip, [data-widget="w-alignment-lens"] .lens-verb, [data-widget="w-alignment-lens"] .lens-dot { will-change: transform; }
+[data-widget="w-alignment-lens"] .lens-dot { margin-left: -10px; }
+[data-widget="w-alignment-lens"] .lens-dot[hidden] { display: none; }
+[data-widget="w-alignment-lens"] .chip-word { font-size: 1.375rem; padding: 8px 14px; min-height: 46px; perspective: 400px;
+  background: var(--neutral-chip); color: var(--ink);
+  transition: background var(--dur-2) var(--ease-out), color var(--dur-2) var(--ease-out), transform var(--dur-2) var(--ease-spring), box-shadow var(--dur-2) var(--ease-out); }
+[data-widget="w-alignment-lens"] .is-colored .chip--s .chip-word { background: var(--role-s); color: var(--role-on); }
+[data-widget="w-alignment-lens"] .is-colored .chip--a .chip-word { background: var(--role-a); color: var(--role-on); }
+[data-widget="w-alignment-lens"] .is-colored .chip--p .chip-word { background: var(--role-p); color: var(--role-on); }
+[data-widget="w-alignment-lens"] .in-group .chip-word { transform: translate(-2px, -2px); box-shadow: var(--shadow-hard); }
+[data-widget="w-alignment-lens"] .lens-w { display: inline-block; white-space: nowrap; }
+[data-widget="w-alignment-lens"] .lens-stem { display: inline-block; transform-origin: 50% 60%; backface-visibility: hidden; }
+[data-widget="w-alignment-lens"] .lens-erg { display: none; transform-origin: left center; }
+[data-widget="w-alignment-lens"] .has-erg .lens-erg { display: inline-block; }
+
+/* role letter: absent at step 1, pops in at step 2 (term after the thing) */
+[data-widget="w-alignment-lens"] .lens-role { width: 0; margin-right: -6px; transform: scale(0); opacity: 0; overflow: hidden;
+  transition: width var(--dur-2) var(--ease-spring), margin var(--dur-2) var(--ease-spring), transform var(--dur-3) var(--ease-spring), opacity var(--dur-1); }
+[data-widget="w-alignment-lens"] .is-colored .lens-role { width: 24px; height: 24px; font-size: 13px; margin-right: 0; transform: none; opacity: 1; }
+
+/* label under each chip: who they are (steps 1-2), their form (step 3) */
+[data-widget="w-alignment-lens"] .lens-lab { font: 650 13px/16px var(--font-sans); color: var(--ink-2); white-space: nowrap; margin-top: 4px; min-height: 20px; }
+[data-widget="w-alignment-lens"] .lens-lab.is-tag { background: var(--erg); color: var(--erg-ink); border: 1.5px solid var(--erg-ink); border-radius: 999px;
+  padding: 1px 8px; font-weight: 800; }
+[data-widget="w-alignment-lens"] .lens-verb { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 2px; }
+[data-widget="w-alignment-lens"] .lens-vw { font-size: 1.375rem; line-height: 46px; color: var(--ink-2); }
+[data-widget="w-alignment-lens"] .lens-dot.word { font-size: 1.375rem; line-height: 46px; color: var(--ink-2); }
+[data-widget="w-alignment-lens"] .lens-vg { font-family: var(--font-sans); font-size: 13px; line-height: 16px; margin-top: 4px; min-height: 20px; font-style: italic; }
+
+/* the one group outline; its label sits on the outline itself */
+[data-widget="w-alignment-lens"] .lens-outline { position: absolute; z-index: auto; border: 3px dashed var(--grp-sa); border-radius: 16px;
+  background: var(--role-s-soft); opacity: 0; scale: .86; pointer-events: none;
+  transition: opacity var(--dur-2) var(--ease-out), scale var(--dur-3) var(--ease-spring), border-color var(--dur-3) var(--ease-out); }
+[data-widget="w-alignment-lens"] .is-grouped .lens-outline { opacity: 1; scale: none; } /* no stacking context, so the label can sit above the chips */
+[data-widget="w-alignment-lens"] .is-sp .lens-outline { border-color: var(--grp-sp); }
+[data-widget="w-alignment-lens"] .lens-olab { position: absolute; z-index: 2; top: -13px; left: 10px; font: 800 11px/1 var(--font-mono); letter-spacing: .02em;
+  color: var(--grp-sa); background: var(--surface); border: 2px solid currentColor; border-radius: 999px; padding: 4px 8px; white-space: nowrap;
+  transition: color var(--dur-3) var(--ease-out); }
+[data-widget="w-alignment-lens"] .is-sp .lens-olab { color: var(--grp-sp); }
+
+/* bottom strip: the "made up" tag (ergative-english) or the translations (basque) */
+[data-widget="w-alignment-lens"] .lens-strip { position: relative; flex: none; min-height: 34px; padding-top: 4px; display: flex; align-items: center; justify-content: center; }
+[data-widget="w-alignment-lens"] .lens-madeup, [data-widget="w-alignment-lens"] .lens-tr { display: none; }
+[data-widget="w-alignment-lens"] [data-strip="madeup"] .lens-madeup { display: inline-block; font: 800 11px/1.2 var(--font-mono); letter-spacing: .05em; text-transform: uppercase;
+  color: var(--bg); background: var(--ink); border: var(--border); border-radius: 6px; padding: 6px 10px; transform: rotate(-2deg);
+  box-shadow: var(--shadow-hard-sm); animation: lens-stamp var(--dur-3) var(--ease-spring) both; text-align: center; }
+[data-widget="w-alignment-lens"] [data-strip="tr"] .lens-tr { display: flex; flex-wrap: wrap; justify-content: center; column-gap: var(--sp-2);
+  font: italic 400 var(--fs-small)/1.35 var(--font-serif); color: var(--ink-2); animation: lens-fade var(--dur-3) var(--ease-out) both; }
+@keyframes lens-stamp { from { transform: rotate(-14deg) scale(1.6); opacity: 0; } to { transform: rotate(-2deg) scale(1); opacity: 1; } }
+@keyframes lens-fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+/* 3-segment mode switch */
+[data-widget="w-alignment-lens"] .lens-switch { display: flex; border: var(--border); border-radius: 999px; overflow: hidden; background: var(--bg);
+  box-shadow: var(--shadow-hard-sm); flex: none; }
+[data-widget="w-alignment-lens"] .lens-seg { flex: 1 1 0; min-width: 0; min-height: var(--tap); padding: 6px 10px; border: 0; background: transparent;
+  font: 700 var(--fs-small)/1.15 var(--font-display); color: var(--ink); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  transition: background var(--dur-2) var(--ease-out), color var(--dur-2) var(--ease-out); }
+[data-widget="w-alignment-lens"] .lens-seg + .lens-seg { border-left: var(--border); }
+[data-widget="w-alignment-lens"] .lens-seg[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+[data-widget="w-alignment-lens"] .lens-seg:not(:disabled):not([aria-pressed="true"]):hover { background: var(--surface-2); }
+[data-widget="w-alignment-lens"] .lens-seg:focus-visible { outline: 3px solid var(--focus); outline-offset: -5px; }
+[data-widget="w-alignment-lens"] .lens-seg:disabled { cursor: not-allowed; color: var(--ink-3); }
+[data-widget="w-alignment-lens"] .lens-lock { display: none; width: 14px; height: 14px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; }
+[data-widget="w-alignment-lens"] .lens-seg.is-locked .lens-lock { display: inline-block; }
+
+[data-widget="w-alignment-lens"] .lens-live { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; margin: 0; }
+
+/* narrow container (phones): everything must fit the sticky canvas (<= 55vh) */
+[data-widget="w-alignment-lens"] .lens.is-narrow { height: min(324px, calc(var(--lens-max-h) - 18px)); padding: var(--sp-1) var(--sp-2) var(--sp-1); gap: 6px; box-shadow: var(--shadow-hard-sm); }
+[data-widget="w-alignment-lens"] .is-narrow .lens-head { min-height: 28px; }
+[data-widget="w-alignment-lens"] .is-narrow .lens-mode { font-size: 13px; padding: 5px 10px; }
+[data-widget="w-alignment-lens"] .is-narrow .lens-comp { gap: 24px; padding: 22px 0 2px; }
+[data-widget="w-alignment-lens"] .is-narrow .lens-row { gap: 10px; }
+[data-widget="w-alignment-lens"] .is-narrow .chip-word { font-size: 1.0625rem; padding: 6px 10px; min-height: 38px; gap: 5px; }
+[data-widget="w-alignment-lens"] .is-narrow.is-colored .lens-role { width: 19px; height: 19px; font-size: 11px; }
+[data-widget="w-alignment-lens"] .is-narrow .lens-role { margin-right: -5px; }
+[data-widget="w-alignment-lens"] .is-narrow .lens-vw, [data-widget="w-alignment-lens"] .is-narrow .lens-dot.word { font-size: 1.0625rem; line-height: 38px; }
+[data-widget="w-alignment-lens"] .is-narrow .lens-dot { margin-left: -7px; }
+[data-widget="w-alignment-lens"] .is-narrow .lens-lab, [data-widget="w-alignment-lens"] .is-narrow .lens-vg { font-size: 12px; line-height: 14px; margin-top: 3px; min-height: 18px; }
+[data-widget="w-alignment-lens"] .is-narrow .lens-olab { font-size: 11px; top: -12px; left: 6px; padding: 3px 7px; }
+[data-widget="w-alignment-lens"] .is-narrow .lens-strip { min-height: 40px; }
+[data-widget="w-alignment-lens"] .is-narrow .lens-seg { font-size: 13px; padding: 4px 6px; gap: 4px; }
+[data-widget="w-alignment-lens"] .is-narrow [data-strip="tr"] .lens-tr { font-size: 13px; flex-direction: column; align-items: center; }
+[data-widget="w-alignment-lens"] .is-tight .chip-word { font-size: .9375rem; padding: 5px 8px; }
+[data-widget="w-alignment-lens"] .is-tight .lens-vw, [data-widget="w-alignment-lens"] .is-tight .lens-dot.word { font-size: .9375rem; }
+[data-widget="w-alignment-lens"] .is-tight .lens-row { gap: 7px; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-widget="w-alignment-lens"] .lens *, [data-widget="w-alignment-lens"] .lens,
+  [data-widget="w-alignment-lens"] [data-strip="madeup"] .lens-madeup, [data-widget="w-alignment-lens"] [data-strip="tr"] .lens-tr { transition: none; animation: none; }
+}

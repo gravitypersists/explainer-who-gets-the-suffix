@@ -1,0 +1,57 @@
+{
+  "data_origins": [],
+  "cdn": ["https://fonts.googleapis.com", "https://fonts.gstatic.com"],
+  "tokens": "assets/tokens.css (kit names + --role-s/a/p, --role-on, --role-*-soft, --erg, --erg-ink, --grp-sa, --grp-sp, --grp-sa-grad, --grp-sp-grad, --font-display, --font-ex, --font-ex-diacritic, --border, --shadow-hard, --shadow-hard-sm, --lens-max-h, --ease-spring)",
+  "shared_classes": "assets/page.css: .chip/.chip--s|a|p/.chip-word/.chip-role/.chip-gloss/.erg/.word (optional for widgets to reuse; do not restyle them globally)",
+  "widgets": {
+    "w-alignment-lens": {
+      "segment": "s-02",
+      "segments": ["s-02", "s-03", "s-04"],
+      "complexity": "high",
+      "mount": "[data-widget=\"w-alignment-lens\"]",
+      "mount_id": "lens",
+      "container": ".lens-canvas (sticky scrolly canvas; desktop column ~ 520-560px wide at top 12vh, max-height 70vh; mobile full width, sticky top 0, max-height 55vh, overflow hidden)",
+      "size": { "desktop": "~560×360 inside the sticky canvas column", "mobile": "100% × ≤ min(340px, 55vh − 16px); 3-segment mode switch under the rows, targets ≥ 44px" },
+      "reserved_min_height": { "desktop": "360px", "mobile": "min(340px, calc(var(--lens-max-h) - 16px))" },
+      "inputs": {
+        "attributes": {
+          "data-state": "english | ergative-english | basque",
+          "data-step": "1 = plain chips, no S/A/P letters or role colours, no outline; 2 = letters + role colours; 3 = letters + colours + group outline (+ labels). ergative-english and basque always arrive with step 3",
+          "data-unlocked": "space-separated states the mode switch may offer (starts 'english'; page adds 'ergative-english' when k-03 is committed, 'basque' when its step is reached)"
+        },
+        "event_in": "'lens:update' CustomEvent dispatched on the mount by assets/page.js, detail { state, step, unlocked: [..], source: 'scroll' | 'gate' }. Read the attributes at init too: the page may set them before the widget script runs",
+        "event_out": "'lens:mode' CustomEvent, bubbles, dispatched from the mount when the reader uses the mode switch, detail { state }. The page then sets data-state to that state and data-step=3; the next scroll step change overrides it"
+      },
+      "content": "per learning-plan.md w-alignment-lens model: english (She slept. / She saw him.; outline S+A 'same form'), ergative-english (Her slept. / She saw him.; outline S+P 'same form'; persistent tag 'Made-up English: no one speaks this'), basque (Martin etorri da. 'Martin has arrived.' / Martinek Diego ikusi du. 'Martin has seen Diego.'; outline S+P 'no ending (absolutive)'; tag on A '-k/-ek (ergative)'; '-ek' in var(--erg) with var(--erg-ink) text). Mode label in canvas corner. aria-live line describing the grouping",
+      "files": ["index.js", "index.css"],
+      "cdn": [],
+      "data_origins": []
+    },
+    "w-basque-decoder": {
+      "segment": "s-04",
+      "complexity": "high",
+      "mount": "[data-widget=\"w-basque-decoder\"]",
+      "mount_id": "decoder",
+      "container": "prose column inside .d-main, class d-wide (≤ 960px; keep content ≤ 680px)",
+      "size": { "desktop": "≤ 680px wide, ~420px per puzzle, puzzles stacked, later ones locked", "mobile": "100%, chips wrap, full-width Check, ~480px per puzzle" },
+      "reserved_min_height": { "desktop": "560px", "mobile": "640px" },
+      "inputs": { "attributes": {}, "event_in": "none" },
+      "event_out": "optional: 'decoder:check' (bubbles) detail { puzzle: 1|2|3, correct: bool } and 'decoder:complete' (bubbles). The page does not depend on them",
+      "content": "per learning-plan.md w-basque-decoder model and k-04/k-05 (prompts, options, feedback). The 'Every noun here is singular.' banner, per-chip glosses, da/du clue, Try again, Reset all and the summary line are inside the widget",
+      "files": ["index.js", "index.css"],
+      "cdn": [],
+      "data_origins": []
+    },
+    "w-split-switch": {
+      "segment": "s-05",
+      "complexity": "low",
+      "built_by": "page-builder",
+      "mount": "[data-widget=\"w-split-switch\"]",
+      "size": { "desktop": "prose column, ~240px", "mobile": "100%, ~260px, full-width 2-segment control" },
+      "inputs": { "event_in": "'didactician:commit' on document with detail.id === 'k-07' unlocks the switch" },
+      "files": ["index.js", "index.css"],
+      "cdn": [],
+      "data_origins": []
+    }
+  }
+}

@@ -1,0 +1,110 @@
+/* "Who Gets the Suffix?" design tokens.
+   Kit variable names (kit/tokens.css) mapped onto a bold, playful identity: cream paper, heavy ink,
+   hard offset shadows, chunky display type. Widgets use these variables, never literal colours.
+
+   ROLE COLOURS (fixed meaning across every figure and widget on the page):
+     --role-s  S, the lone participant of a one-participant verb   (violet)
+     --role-a  A, the doer of a two-participant verb              (orange)
+     --role-p  P, the one acted on                                (teal)
+     --role-on text colour to put ON a solid role fill
+     --erg     the ergative ending (-k / -ek / -nē): highlighter yellow, with --erg-ink text on it
+   GROUP COLOURS (the outline that groups two roles; also the WALS bars):
+     --grp-sa / --grp-sp           solid stroke colours for SVG or borders
+     --grp-sa-grad / --grp-sp-grad CSS gradients (S colour into A or P colour) for HTML fills/borders */
+:root {
+  --sp-0: 0; --sp-half: 4px; --sp-1: 8px; --sp-2: 16px; --sp-3: 24px; --sp-4: 32px;
+  --sp-5: 40px; --sp-6: 48px; --sp-8: 64px; --sp-10: 80px; --sp-12: 96px;
+
+  --font-display: "Bricolage Grotesque", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: "Bricolage Grotesque", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-body: var(--font-serif);
+  --font-ex: var(--font-display);      /* example sentences (English, Basque) */
+  --font-ex-diacritic: var(--font-serif); /* romanized Hindi-Urdu (ṛ, ē) needs wide Latin coverage */
+  --fs-caption: 0.8125rem; --lh-caption: 1.25rem;
+  --fs-small: 0.9375rem;   --lh-small: 1.5rem;
+  --fs-body: 1.125rem;     --lh-body: 1.75rem;
+  --fs-h3: 1.25rem;  --lh-h3: 1.75rem;
+  --fs-h2: 2rem;     --lh-h2: 2.5rem;
+  --fs-h1: 4rem;     --lh-h1: 4.25rem;
+  --measure: 66ch;
+
+  --bg: #fff6e9;
+  --surface: #ffffff;
+  --surface-2: #fbeedb;
+  --ink: #17132e;
+  --ink-2: #3d3858;
+  --ink-3: #686380;
+  --ink-4: #b7b0c4;
+  --line: #17132e;          /* lines are ink: the identity is outlined, not hairlined */
+  --line-soft: #e6dccb;
+  --accent: #17132e;        /* UI accent is ink, so colour stays reserved for roles */
+  --accent-ink: #fff6e9;
+  --focus: #2563eb;
+  --good: #137a47; --bad: #b3261e; --warn: #9a6400;
+  --good-soft: #137a4718; --bad-soft: #b3261e14;
+
+  --role-s: #6d28d9; --role-a: #c2410c; --role-p: #0e7490; --role-on: #ffffff;
+  --role-s-soft: #6d28d91c; --role-a-soft: #c2410c1c; --role-p-soft: #0e74901c;
+  --erg: #ffd60a; --erg-ink: #17132e;
+  --grp-sa: #9a35a0; --grp-sp: #3e4fb5;
+  --grp-sa-grad: linear-gradient(90deg, var(--role-s), var(--role-a));
+  --grp-sp-grad: linear-gradient(90deg, var(--role-s), var(--role-p));
+  --neutral-chip: #ece3d3;
+
+  /* kit series mapped onto the role meaning */
+  --c1: var(--role-s); --c2: var(--role-a); --c3: var(--role-p); --c4: #b58900; --c5: #7b4fc9; --c6: #5b6770;
+  --c1-soft: var(--role-s-soft); --c2-soft: var(--role-a-soft); --c3-soft: var(--role-p-soft); --c4-soft: #ffd60a33;
+
+  --radius-1: 6px; --radius-2: 12px; --radius-3: 20px;
+  --border: 2px solid var(--ink);
+  --shadow-hard: 4px 4px 0 var(--ink);
+  --shadow-hard-sm: 2px 2px 0 var(--ink);
+  --shadow-1: var(--shadow-hard);
+  --stroke: 2px;
+  --tap: 44px;
+  --lens-max-h: 70vh;
+
+  --ease-out: cubic-bezier(.2, .7, .2, 1);
+  --ease-spring: cubic-bezier(.34, 1.56, .64, 1);
+  --dur-1: 150ms; --dur-2: 300ms; --dur-3: 600ms;
+}
+
+@media (max-width: 599px) {
+  :root { --fs-body: 1.0625rem; --lh-body: 1.625rem; --fs-h1: 2.75rem; --lh-h1: 3rem; --fs-h2: 1.625rem; --lh-h2: 2rem; }
+}
+@media (max-width: 899px) { :root { --lens-max-h: 55vh; } }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #110e22; --surface: #1c1834; --surface-2: #241f40;
+    --ink: #f6eedf; --ink-2: #d4cce0; --ink-3: #a59fb8; --ink-4: #5d5776; --line: #f6eedf; --line-soft: #36304f;
+    --accent: #f6eedf; --accent-ink: #110e22; --focus: #7aa2ff;
+    --good: #5cd394; --bad: #ff8a80; --warn: #e6b450; --good-soft: #5cd39422; --bad-soft: #ff8a801c;
+    --role-s: #b197fc; --role-a: #ff9a52; --role-p: #3fd0e6; --role-on: #110e22;
+    --role-s-soft: #b197fc26; --role-a-soft: #ff9a5226; --role-p-soft: #3fd0e626;
+    --erg: #ffd60a; --erg-ink: #110e22;
+    --grp-sa: #d898c8; --grp-sp: #7fb4f0;
+    --neutral-chip: #2c2748;
+    --c4: #ffd60a;
+    --shadow-hard: 4px 4px 0 #000; --shadow-hard-sm: 2px 2px 0 #000;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #110e22; --surface: #1c1834; --surface-2: #241f40;
+  --ink: #f6eedf; --ink-2: #d4cce0; --ink-3: #a59fb8; --ink-4: #5d5776; --line: #f6eedf; --line-soft: #36304f;
+  --accent: #f6eedf; --accent-ink: #110e22; --focus: #7aa2ff;
+  --good: #5cd394; --bad: #ff8a80; --warn: #e6b450; --good-soft: #5cd39422; --bad-soft: #ff8a801c;
+  --role-s: #b197fc; --role-a: #ff9a52; --role-p: #3fd0e6; --role-on: #110e22;
+  --role-s-soft: #b197fc26; --role-a-soft: #ff9a5226; --role-p-soft: #3fd0e626;
+  --erg: #ffd60a; --erg-ink: #110e22;
+  --grp-sa: #d898c8; --grp-sp: #7fb4f0;
+  --neutral-chip: #2c2748;
+  --c4: #ffd60a;
+  --shadow-hard: 4px 4px 0 #000; --shadow-hard-sm: 2px 2px 0 #000;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-1: 0ms; --dur-2: 0ms; --dur-3: 0ms; }
+}

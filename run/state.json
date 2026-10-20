@@ -1,0 +1,287 @@
+{
+  "version": 1,
+  "slug": "ergativity",
+  "created": "2026-10-20T13:52:13-04:00",
+  "depth": "light",
+  "minutes": 8,
+  "stage": "done",
+  "caps": {
+    "spawns": 18,
+    "agent_minutes": 75,
+    "loops": {
+      "research": 2,
+      "checkpoint": 4,
+      "gate": 6,
+      "review": 2
+    }
+  },
+  "seq": 13,
+  "dispatches": [
+    {
+      "nn": 1,
+      "role": "researcher",
+      "loop": "research",
+      "label": "light-research",
+      "writes": [
+        "run/research"
+      ],
+      "exclude": [],
+      "opened": "2026-10-20T13:52:33-04:00",
+      "closed": "2026-10-20T13:57:42-04:00",
+      "status": "done_with_concerns",
+      "ns_ok": true,
+      "pivot": false,
+      "reason": null,
+      "changed": 10
+    },
+    {
+      "nn": 2,
+      "role": "researcher",
+      "loop": "research",
+      "label": "basque-fill-in",
+      "writes": [
+        "run/research"
+      ],
+      "exclude": [],
+      "opened": "2026-10-20T13:57:42-04:00",
+      "closed": "2026-10-20T14:00:39-04:00",
+      "status": "done_with_concerns",
+      "ns_ok": true,
+      "pivot": false,
+      "reason": null,
+      "changed": 8
+    },
+    {
+      "nn": 3,
+      "role": "instructional-designer",
+      "loop": "checkpoint",
+      "label": "plan-v1",
+      "writes": [
+        "run/plan"
+      ],
+      "exclude": [],
+      "opened": "2026-10-20T14:00:39-04:00",
+      "closed": "2026-10-20T14:05:56-04:00",
+      "status": "done_with_concerns",
+      "ns_ok": true,
+      "pivot": false,
+      "reason": null,
+      "changed": 8
+    },
+    {
+      "nn": 4,
+      "role": "page-builder",
+      "loop": "gate:page",
+      "label": "page-v1",
+      "writes": [
+        "site"
+      ],
+      "exclude": [
+        "site/widgets/*/*"
+      ],
+      "opened": "2026-10-20T14:07:22-04:00",
+      "closed": "2026-10-20T14:21:24-04:00",
+      "status": "done_with_concerns",
+      "ns_ok": false,
+      "pivot": false,
+      "reason": null,
+      "changed": 39,
+      "ack": "Intended: handoff 04 assigned the low-complexity w-split-switch to the page builder; no widget builder owns that namespace. Exclude glob was too broad (should have excluded only high-complexity widget dirs)."
+    },
+    {
+      "nn": 5,
+      "role": "widget-builder",
+      "loop": "gate:w-alignment-lens",
+      "label": "w-alignment-lens",
+      "writes": [
+        "site/widgets/w-alignment-lens"
+      ],
+      "exclude": [],
+      "opened": "2026-10-20T14:21:30-04:00",
+      "closed": "2026-10-20T14:36:25-04:00",
+      "status": "done_with_concerns",
+      "ns_ok": true,
+      "pivot": false,
+      "reason": null,
+      "changed": 49
+    },
+    {
+      "nn": 6,
+      "role": "widget-builder",
+      "loop": "gate:w-basque-decoder",
+      "label": "w-basque-decoder",
+      "writes": [
+        "site/widgets/w-basque-decoder"
+      ],
+      "exclude": [],
+      "opened": "2026-10-20T14:21:30-04:00",
+      "closed": "2026-10-20T14:29:45-04:00",
+      "status": "done_with_concerns",
+      "ns_ok": true,
+      "pivot": false,
+      "reason": null,
+      "changed": 30
+    },
+    {
+      "nn": 7,
+      "role": "accuracy-reviewer",
+      "loop": "review:accuracy",
+      "label": "accuracy-r1",
+      "writes": [
+        "run/review/round-1"
+      ],
+      "exclude": [],
+      "opened": "2026-10-20T14:36:59-04:00",
+      "closed": "2026-10-20T14:39:44-04:00",
+      "status": "done_with_concerns",
+      "ns_ok": true,
+      "pivot": false,
+      "reason": null,
+      "changed": 10
+    },
+    {
+      "nn": 8,
+      "role": "pedagogy-ux-reviewer",
+      "loop": "review:pedagogy-ux",
+      "label": "pedux-r1",
+      "writes": [
+        "run/review/round-1"
+      ],
+      "exclude": [],
+      "opened": "2026-10-20T14:36:59-04:00",
+      "closed": "2026-10-20T14:45:02-04:00",
+      "status": "done",
+      "ns_ok": true,
+      "pivot": false,
+      "reason": null,
+      "changed": 68
+    },
+    {
+      "nn": 9,
+      "role": "widget-builder",
+      "loop": "gate:w-alignment-lens",
+      "label": "r1-fixes",
+      "writes": [
+        "site/widgets/w-alignment-lens"
+      ],
+      "exclude": [],
+      "opened": "2026-10-20T14:45:14-04:00",
+      "closed": "2026-10-20T14:46:40-04:00",
+      "status": "done",
+      "ns_ok": true,
+      "pivot": false,
+      "reason": null,
+      "changed": 24
+    },
+    {
+      "nn": 10,
+      "role": "widget-builder",
+      "loop": "gate:w-basque-decoder",
+      "label": "r1-fixes",
+      "writes": [
+        "site/widgets/w-basque-decoder"
+      ],
+      "exclude": [],
+      "opened": "2026-10-20T14:45:14-04:00",
+      "closed": "2026-10-20T14:46:50-04:00",
+      "status": "done",
+      "ns_ok": true,
+      "pivot": false,
+      "reason": null,
+      "changed": 30
+    },
+    {
+      "nn": 11,
+      "role": "page-builder",
+      "loop": "gate:page",
+      "label": "r1-fixes",
+      "writes": [
+        "site"
+      ],
+      "exclude": [
+        "site/widgets/w-alignment-lens/*",
+        "site/widgets/w-basque-decoder/*"
+      ],
+      "opened": "2026-10-20T14:45:17-04:00",
+      "closed": "2026-10-20T14:48:06-04:00",
+      "status": "done",
+      "ns_ok": true,
+      "pivot": false,
+      "reason": null,
+      "changed": 44
+    },
+    {
+      "nn": 12,
+      "role": "accuracy-reviewer",
+      "loop": "review:accuracy",
+      "label": "accuracy-r2",
+      "writes": [
+        "run/review/round-2"
+      ],
+      "exclude": [],
+      "opened": "2026-10-20T14:48:41-04:00",
+      "closed": "2026-10-20T14:50:19-04:00",
+      "status": "done",
+      "ns_ok": true,
+      "pivot": false,
+      "reason": null,
+      "changed": 30
+    },
+    {
+      "nn": 13,
+      "role": "pedagogy-ux-reviewer",
+      "loop": "review:pedagogy-ux",
+      "label": "pedux-r2",
+      "writes": [
+        "run/review/round-2"
+      ],
+      "exclude": [],
+      "opened": "2026-10-20T14:48:41-04:00",
+      "closed": "2026-10-20T14:50:41-04:00",
+      "status": "done",
+      "ns_ok": true,
+      "pivot": false,
+      "reason": null,
+      "changed": 32
+    }
+  ],
+  "loops": {
+    "research": 2,
+    "checkpoint": 1,
+    "gate:page": 2,
+    "gate:w-alignment-lens": 2,
+    "gate:w-basque-decoder": 2,
+    "review:accuracy": 2,
+    "review:pedagogy-ux": 2
+  },
+  "gate_history": {
+    "gate:page": [
+      [
+        "overflow: page scrollWidth 379 > viewport 360; offenders: div.card.umea > div.umea-row:nth-child(3) > div.c.c-rest:nth-child(3) > "
+      ],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      []
+    ],
+    "gate:w-basque-decoder": [
+      [
+        "console: [360, 768, 1280px] Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "replay: [360, 768, 1280px] span.chip.bd-chip > button.chip-word.bd-noun:nth-child(1) > span.bd-w:nth-child(2) > span.bd-q:nth-ch",
+        "resources: [360, 768, 1280px] http://127.0.0.1:52594/__didactician/site/widgets/w-alignment-lens/index.css \u2192 HTTP 404"
+      ],
+      []
+    ],
+    "gate:w-alignment-lens": [
+      [],
+      [],
+      []
+    ]
+  },
+  "noprogress": {}
+}

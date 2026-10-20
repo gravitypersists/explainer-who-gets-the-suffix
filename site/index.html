@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Who Gets the Suffix?</title>
+<meta name="description" content="An eight-minute explorable about how languages group the people in a sentence: why English treats the sleeper like the seer, and why many languages, Basque among them, group the lone participant with the one who is seen instead.">
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@400;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/components.css">
+<link rel="stylesheet" href="assets/page.css">
+<link rel="stylesheet" href="widgets/w-alignment-lens/index.css">
+<link rel="stylesheet" href="widgets/w-basque-decoder/index.css">
+<link rel="stylesheet" href="widgets/w-split-switch/index.css">
+</head>
+<body class="d-body">
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="d-kicker">Linguistic typology · an explorable</span>
+    <h1>Who gets the <span class="hl" data-anim="flair" data-anim-autoplay="visible">suffix</span>?</h1>
+    <p class="d-standfirst"><em>“She slept.”</em> <em>“She saw him.”</em> Your gut says the sleeper and the seer are the same kind of thing. Plenty of the world’s languages disagree. A few taps, some real Basque, and one tiny ending will show you why.</p>
+    <div class="d-meta">
+      <div><b>Time</b>about 8 minutes</div>
+      <div><b>For</b>anyone curious; no linguistics needed</div>
+      <div><b>You’ll</b>tap, predict, decode</div>
+    </div>
+    <div class="sticker" aria-hidden="true" data-anim="flair" data-anim-autoplay="visible">-k</div>
+  </div>
+</header>
+
+<div class="d-page">
+  <aside class="d-rail" data-toc data-minutes="8"></aside>
+  <main class="d-main" id="main">
+    <details class="d-toc-mobile" data-toc-mobile></details>
+
+    <!-- s-01 ============================================================================ -->
+    <section id="s-01" data-seg="s-01">
+      <h2 id="which-two" data-num="1">Which two belong together?</h2>
+      <p>Here are three people from two tiny sentences. Don’t overthink it: go with your gut.</p>
+
+      <div class="d-check" data-check="k-01" data-kind="pair">
+        <div class="d-check-kind">Predict · no wrong answer</div>
+        <p class="d-check-prompt" id="k01-prompt">Tap the two that feel like “the same kind of thing”: the sleeper (“She slept”), the one who sees (“She saw him”), or the one who is seen (“She saw him”).</p>
+        <div class="tiles-wrap">
+          <svg class="lasso" aria-hidden="true"><path pathLength="1" d=""/><text></text></svg>
+          <div class="tiles" role="group" aria-labelledby="k01-prompt">
+            <button type="button" class="tile" data-pick="sleeper" aria-pressed="false">
+              <span class="tile-sent"><mark>She</mark> slept.</span>
+              <span class="tile-label">the sleeper</span>
+              <span class="tile-pick">picked</span>
+            </button>
+            <button type="button" class="tile" data-pick="seer" aria-pressed="false">
+              <span class="tile-sent"><mark>She</mark> <span class="tile-dim">saw him.</span></span>
+              <span class="tile-label">the one who sees</span>
+              <span class="tile-pick">picked</span>
+            </button>
+            <button type="button" class="tile" data-pick="seen" aria-pressed="false">
+              <span class="tile-sent"><span class="tile-dim">She saw</span> <mark>him</mark>.</span>
+              <span class="tile-label">the one who is seen</span>
+              <span class="tile-pick">picked</span>
+            </button>
+          </div>
+        </div>
+        <div class="d-feedback" role="status" hidden>
+          <span class="lead" id="k01-lead"></span>
+          <p>No wrong answer here. Hold on to your pick. Many English speakers pick the sleeper and the seer, because English uses “she” for both. By the end you’ll meet languages whose grammar draws the line the other way, grouping the lone participant with the one who is seen.</p>
+          <p class="k01-actions"><button type="button" class="linkbtn" data-k01-reset>Change my pick</button></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- s-02 .. s-04 (entry): one sticky lens canvas, steps scroll beside / below it ========= -->
+    <section id="s-02" data-seg="s-02">
+      <h2 id="three-roles" data-num="2">Three roles, and English’s grouping</h2>
+      <p>Let’s put those three people under a lens. Scroll on, and watch the canvas as you go.</p>
+    </section>
+
+    <div class="d-scrolly lens-scrolly d-wide" data-seg="s-02 s-03 s-04">
+      <div class="d-scrolly-canvas lens-canvas">
+        <div data-widget="w-alignment-lens" id="lens" data-state="english" data-step="1" data-unlocked="english"
+             role="region" aria-label="Alignment lens: which roles share a form"></div>
+      </div>
+
+      <div class="d-scrolly-steps">
+        <div class="d-step" data-lens-state="english" data-lens-step="1">
+          <span class="step-tag">English · 1 of 3</span>
+          <p>Start with who’s in each sentence. <span class="ex">She slept</span> has one participant, the sleeper, and nobody else. <span class="ex">She saw him</span> has two: one who does the seeing, and one who gets seen.</p>
+        </div>
+
+        <div class="d-step" data-lens-state="english" data-lens-step="2">
+          <span class="step-tag">English · 2 of 3</span>
+          <p>Linguists give these three roles one-letter names. They’ve just appeared on the canvas.</p>
+          <p><span class="role-key s">S</span> is the <strong>single</strong> participant of a one-participant verb like <em>slept</em>.</p>
+          <p><span class="role-key a">A</span> is the <strong>agent</strong>: the doer of a two-participant verb like <em>saw</em>.</p>
+          <p><span class="role-key p">P</span> is the <strong>patient</strong>: the one the action lands on. (Some books call it O, for object.)</p>
+        </div>
+
+        <div class="d-step" data-lens-state="english" data-lens-step="3">
+          <span class="step-tag">English · 3 of 3</span>
+          <p>Now look at the words themselves. S and A are both <span class="ex">she</span>. Only P gets a different form: <span class="ex">him</span>, or <span class="ex">her</span>. So English draws its line around S and A, and leaves P on its own.</p>
+          <p>This grouping is called <strong>nominative-accusative</strong>, or <strong>accusative</strong> for short.</p>
+          <details class="d-more">
+            <summary>Why not just say “subject” and “object”?</summary>
+            <div>
+              <p>Because “subject” already bundles S and A together, and that bundle is exactly what this page puts on trial. Three separate letters let us ask which two a language groups.</p>
+              <p>Also, English shows the grouping in its word forms only on pronouns. A noun like <span class="ex">the man</span> looks the same whether he sleeps, sees, or is seen.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="d-check" data-check="k-02" data-kind="mc">
+          <div class="d-check-kind">Apply</div>
+          <p class="d-check-prompt">“He fell.” and “He pushed her.” Which pronoun is S, which is A, which is P, and which two share a form?</p>
+          <div class="d-options" role="group" aria-label="Answer options">
+            <button type="button" class="d-option" data-correct data-lead="Yes: A.">A) S = He, A = He, P = her: S and A share “he”<span class="tick"></span></button>
+            <button type="button" class="d-option" data-lead="Not quite. It’s A.">B) S = He, A = her, P = He: S and P share “he”<span class="tick"></span></button>
+            <button type="button" class="d-option" data-lead="Not quite. It’s A, and “her” isn’t even in the falling sentence.">C) S = her, A = He, P = He<span class="tick"></span></button>
+          </div>
+          <div class="d-feedback" role="status" hidden></div>
+          <template class="fb"><p>“Fell” has one participant, so “He” is S. In “pushed”, the pusher “He” is A and the pushed “her” is P. English gives S and A the same form (“he”) and P a different one (“her”). That is accusative alignment. B swaps the doer and the one acted on: the role comes from who does what, not from word order or position alone.</p></template>
+        </div>
+
+        <h2 id="s-03" data-num="3">Flip it: a made-up English</h2>
+
+        <div class="d-step" data-lens-state="english" data-lens-step="3">
+          <span class="step-tag">A thought experiment</span>
+          <p>English puts S with A. But is that the only sensible line to draw? Imagine an English that groups differently: it puts the sleeper together with the one who is seen, and leaves the seer on its own.</p>
+          <p>Before the canvas changes, make a prediction.</p>
+        </div>
+
+        <div class="d-check" data-check="k-03" data-kind="mc" data-unlocks="ergative-english">
+          <div class="d-check-kind">Predict</div>
+          <p class="d-check-prompt">Imagine an English that groups the sleeper with the one who is seen, not with the seer. How would “She slept” come out?</p>
+          <div class="d-options" role="group" aria-label="Answer options">
+            <button type="button" class="d-option" data-lead="That’s real English, not the flipped one. The answer is B.">A) She slept.<span class="tick"></span></button>
+            <button type="button" class="d-option" data-correct data-lead="Yes: B.">B) Her slept.<span class="tick"></span></button>
+            <button type="button" class="d-option" data-lead="Not quite. The answer is B.">C) She slept her.<span class="tick"></span></button>
+          </div>
+          <div class="d-feedback" role="status" hidden></div>
+          <template class="fb"><p>If the sleeper is grouped with the one who is seen, the sleeper takes the seen one’s form: “her”. A is real English, which groups the sleeper with the seer. C adds a second participant, so it is no longer the lone-sleeper sentence. Real ergative languages usually don’t swap pronouns like this. They mark the doer with an extra ending, as the next section shows.</p></template>
+        </div>
+
+        <div class="d-step" data-lens-state="ergative-english" data-lens-step="3" data-lens-gate="k-03">
+          <p class="step-locked">Answer the question above, and the canvas will flip.</p>
+          <div class="step-body">
+            <span class="step-tag">Made-up English</span>
+            <p>The outline jumped. In this English the sleeper takes the object form, the one P gets: <span class="ex">Her slept</span>. Now S and P share a form, and A, the seer, is the odd one out.</p>
+            <p>Use the switch on the canvas to flip between the two Englishes. Same three roles; only the grouping moved.</p>
+            <p>Nobody speaks this English. Real languages that group S with P don’t usually reshuffle pronouns like this. They leave S and P bare, and give the doer an extra ending. Here’s one.</p>
+          </div>
+        </div>
+
+        <h2 id="s-04" data-num="4">Now the real thing: decode some Basque</h2>
+
+        <div class="d-step" data-lens-state="basque" data-lens-step="3">
+          <span class="step-tag">Basque</span>
+          <p>Two Basque sentences: <span class="ex">Martin etorri da</span>, <span class="tr">‘Martin has arrived’</span>, and <span class="ex">Martinek Diego ikusi du</span>, <span class="tr">‘Martin has seen Diego’</span>.</p>
+          <p>Same Martin in both. When he simply arrives, his name has no ending. When he does something to someone, he becomes Martin<span class="erg-inline">-ek</span>. And Diego, the one seen, stays bare, just like Martin who arrived.</p>
+        </div>
+
+        <div class="d-step" data-lens-state="basque" data-lens-step="3">
+          <span class="step-tag">The rule</span>
+          <p>That’s the whole trick. In Basque, the doer of a two-participant verb (A) gets the ending <span class="erg-inline">-k</span>, spelled <span class="erg-inline">-ek</span> after a consonant, as in Martinek. This ending is called the <strong>ergative</strong>.</p>
+          <p>The one acted on (P) stays bare, and so does the lone participant (S) of verbs like ‘arrive’ and ‘come’. The bare form is called the <strong>absolutive</strong>. S goes with P, and A stands apart: Basque is an <strong>ergative-absolutive</strong> language.</p>
+          <p>The canvas switch now flips between all three views. Compare where the outline sits in English and in Basque.</p>
+        </div>
+      </div>
+    </div>
+
+    <div data-seg="s-04">
+      <p>One pair of sentences could be a fluke. Here is one noun, <span class="ex">umea</span> <span class="tr">‘the child’</span>, in all three roles.</p>
+
+      <figure class="d-figure d-wide" id="f-umea">
+        <div class="card umea" role="img" aria-label="Three Basque sentences. Umea etorri da, the child has come: umea is S, no ending. Zuk umea ikusi duzu kalean, you have seen the child in the street: zuk is A with -k, umea is P, no ending. Umeak ez du gizona ikusi, the child has not seen the man: umeak is A with -k, gizona is P, no ending.">
+          <div class="umea-row">
+            <div class="umea-col-head"></div><div class="umea-col-head">the child ↓</div><div class="umea-col-head"></div>
+          </div>
+          <div class="umea-row">
+            <div class="c"></div>
+            <div class="c"><span class="chip chip--s"><span class="chip-word"><span class="chip-role">S</span>Umea</span><span class="chip-gloss">the child</span></span></div>
+            <div class="c c-rest"><span class="word">etorri da.</span></div>
+            <div class="umea-tr">‘The child has come.’</div>
+          </div>
+          <div class="umea-row">
+            <div class="c"><span class="chip chip--a"><span class="chip-word"><span class="chip-role">A</span><span>Zu<span class="erg">k</span></span></span><span class="chip-gloss">you</span></span></div>
+            <div class="c"><span class="chip chip--p"><span class="chip-word"><span class="chip-role">P</span>umea</span><span class="chip-gloss">the child</span></span></div>
+            <div class="c c-rest"><span class="word">ikusi duzu kalean.</span></div>
+            <div class="umea-tr">‘You have seen the child in the street.’</div>
+          </div>
+          <div class="umea-row">
+            <div class="c"></div>
+            <div class="c"><span class="chip chip--a"><span class="chip-word"><span class="chip-role">A</span><span>Umea<span class="erg">k</span></span></span><span class="chip-gloss">the child</span></span></div>
+            <div class="c c-rest"><span class="word">ez du</span><span class="chip chip--p"><span class="chip-word"><span class="chip-role">P</span>gizona</span><span class="chip-gloss">the man</span></span><span class="word">ikusi.</span></div>
+            <div class="umea-tr">‘The child has not seen the man.’</div>
+          </div>
+        </div>
+        <figcaption>The child picks up <b>-k</b> only when it does something to someone; even “you” takes it. Sentences and translations from the All-Ireland Linguistics Olympiad problem <a href="https://ailo.adaptcentre.ie/wp-content/uploads/2020/04/Basqing-in-the-Sun.pdf">“Basquing in the sun”</a> by Aleka Blackwell.</figcaption>
+      </figure>
+
+      <details class="d-more">
+        <summary>Wait, couldn’t <span class="ex">-ak</span> mean plural?</summary>
+        <div>
+          <p>Good catch, and it’s a real trap. The <span class="ex">-a</span> on these nouns works like “the”. Add the doer’s <span class="ex">-k</span> and you get <span class="ex">gizonak</span>, ‘the man’ as a doer. But <span class="ex">gizonak</span> is also how Basque says ‘the men’ in the plain, unmarked form. Only the rest of the sentence tells you which one you’re looking at.</p>
+          <p>That’s why the puzzles below promise that every noun is singular.</p>
+        </div>
+      </details>
+
+      <p>Your turn. Each puzzle gives you an English sentence and the Basque words to say it with. Tap a noun to put the ending on or take it off, then press Check. The puzzles unlock one at a time.</p>
+
+      <div data-widget="w-basque-decoder" id="decoder" class="d-wide" role="region" aria-label="Basque decoder: choose which nouns take -k"></div>
+
+      <div class="d-check" data-check="k-06" data-kind="mc">
+        <div class="d-check-kind">Compare</div>
+        <p class="d-check-prompt">Someone says “Martinek Diego ikusi du” is really a passive, like “Diego was seen by Martin”, since Martin gets the extra marking. Are they right?</p>
+        <div class="d-options" role="group" aria-label="Answer options">
+          <button type="button" class="d-option" data-lead="Tempting, but no. The answer is B.">A) Yes: marking the doer means it’s a passive<span class="tick"></span></button>
+          <button type="button" class="d-option" data-correct data-lead="Right: B.">B) No: it’s an ordinary active sentence, ‘Martin has seen Diego’<span class="tick"></span></button>
+          <button type="button" class="d-option" data-lead="Not quite. The answer is B.">C) Only in the past tense<span class="tick"></span></button>
+        </div>
+        <div class="d-feedback" role="status" hidden></div>
+        <template class="fb"><p>It’s the normal way to say “Martin has seen Diego”. In an English passive the doer is optional and demoted (“Diego was seen”). In Basque, -k is simply what every transitive doer wears. Linguists do note a resemblance between ergative patterns and passives, which is why A is tempting, but the Basque sentence is active. C mixes in split ergativity, which is coming up next and isn’t how Basque works.</p></template>
+      </div>
+
+      <details class="d-more">
+        <summary>Met “ergative verbs” in an English class?</summary>
+        <div>
+          <p>Some English grammar books call verbs like <em>break</em> “ergative verbs”, because they work both ways: <span class="ex">it broke the window</span> and <span class="ex">the window broke</span>. That’s a different use of the same word, and linguists haven’t settled on one name for those verbs.</p>
+          <p>Having verbs like <em>break</em> doesn’t make English ergative. On this page, “ergative” means an ending that the doer of a two-participant verb wears, as in Basque.</p>
+        </div>
+      </details>
+    </div>
+
+    <!-- s-05 ============================================================================ -->
+    <section id="s-05" data-seg="s-05">
+      <h2 id="not-all-or-nothing" data-num="5">Not all-or-nothing</h2>
+      <p>So far it might sound as if every language picks one grouping and sticks to it. Many don’t. Hindi-Urdu has its own doer ending, <span class="erg-inline">-nē</span>, and it’s a good place to watch a language change its mind.</p>
+
+      <div class="d-check" data-check="k-07" data-kind="mc" data-unlocks="split-switch">
+        <div class="d-check-kind">Predict</div>
+        <p class="d-check-prompt">Hindi-Urdu has an ergative ending, -nē. “The boy sells a book.” vs “The boy has sold a book.” Where does -nē show up on the boy?</p>
+        <div class="d-options" role="group" aria-label="Answer options">
+          <button type="button" class="d-option" data-lead="Not quite. The answer is B.">A) In both<span class="tick"></span></button>
+          <button type="button" class="d-option" data-correct data-lead="Yes: B.">B) Only in “has sold”<span class="tick"></span></button>
+          <button type="button" class="d-option" data-lead="Not quite. The answer is B.">C) Only in “sells”<span class="tick"></span></button>
+          <button type="button" class="d-option" data-lead="Not quite. The answer is B.">D) In neither<span class="tick"></span></button>
+        </div>
+        <div class="d-feedback" role="status" hidden></div>
+        <template class="fb"><p>Hindi-Urdu marks the agent with -nē only in the perfective (“has sold”). In “sells” the boy is unmarked, as in an accusative language. One language, two alignments, switched by tense/aspect: split ergativity. If you chose A, you assumed a language is either ergative or not. Many are ergative only part of the time.</p><p>Now try the switch below.</p></template>
+      </div>
+
+      <div data-widget="w-split-switch" id="split-switch" class="card" role="region" aria-label="Hindi-Urdu tense switch"></div>
+
+      <p>Same boy, same book. Only the tense changed (strictly, the aspect), from ‘sells’ to ‘has sold’, and the doer’s ending switched on with it. A language that is ergative in some tenses and accusative-looking in others has <strong>split ergativity</strong>.</p>
+      <p>That clears up a popular claim: that Kurdish and Georgian are ergative languages, just like Basque. Each is only partly ergative, and each splits in its own way. Dyirbal, from Australia, splits along a different line altogether: by the kind of word.</p>
+
+      <div class="lang-cards d-wide">
+        <article class="card lang-card">
+          <h3 data-toc-label="Kurdish">Kurdish<small>splits by tense</small></h3>
+          <div class="badges">
+            <div class="badge off"><span>present tense</span><span class="st">accusative</span></div>
+            <div class="badge on"><span>past, two-participant</span><span class="st">ergative</span></div>
+          </div>
+          <p>Sentences with a doer and a done-to work like English in the present tense, and ergatively in the past.</p>
+        </article>
+        <article class="card lang-card">
+          <h3 data-toc-label="Georgian">Georgian<small>splits by tense, with a twist</small></h3>
+          <div class="badges">
+            <div class="badge off"><span>most tenses</span><span class="st">not ergative</span></div>
+            <div class="badge on"><span>aorist (a past series)</span><span class="st">ergative-ish</span></div>
+          </div>
+          <p>Its ergative ending (called the “narrative” case) shows up mainly in the aorist. Even there, some one-participant verbs take it too, so it ends up sorting verbs by how agent-like their participant is.</p>
+        </article>
+        <article class="card lang-card">
+          <h3 data-toc-label="Dyirbal">Dyirbal<small>Australia · splits by word</small></h3>
+          <div class="badges">
+            <div class="badge on"><span>nouns</span><span class="st">ergative</span></div>
+            <div class="badge off"><span>“I” and “you”</span><span class="st">accusative</span></div>
+          </div>
+          <p>Ordinary nouns follow the ergative pattern, but the words for “I” and “you” follow the accusative one, as English pronouns do.</p>
+        </article>
+      </div>
+      <p class="src">Sources: Wikipedia, <a href="https://en.wikipedia.org/wiki/Split_ergativity">“Split ergativity”</a> (Hindi-Urdu, Dyirbal), <a href="https://en.wikipedia.org/wiki/Kurdish_grammar">“Kurdish grammar”</a>, <a href="https://en.wikipedia.org/wiki/Georgian_grammar">“Georgian grammar”</a>.</p>
+    </section>
+
+    <!-- s-06 ============================================================================ -->
+    <section id="s-06" data-seg="s-06">
+      <h2 id="how-common" data-num="6">How common is each, and which is “logical”?</h2>
+      <p>Is ergativity a rare oddity, then? The World Atlas of Language Structures (WALS) checked how 190 languages mark these roles on ordinary nouns.</p>
+
+      <figure class="d-figure" id="f-wals" data-anim-scope>
+        <div class="card wals" data-anim="flair" data-anim-autoplay="visible" role="img"
+             aria-label="Bar chart. No case difference on nouns: 98 languages. Accusative: 52 (46 standard plus 6 marked-nominative). Ergative: 32. Tripartite: 4. Active: 4. Total 190.">
+          <div class="wals-row">
+            <div class="wals-label">No case difference on nouns</div>
+            <div class="wals-track"><div class="wals-bar" style="--w: calc(98 / 98 * (100% - 3.5rem))"></div><span class="wals-val">98</span></div>
+          </div>
+          <div class="wals-row">
+            <div class="wals-label">Accusative<small>like English pronouns</small></div>
+            <div class="wals-track"><div class="wals-bar sa" style="--w: calc(52 / 98 * (100% - 3.5rem))"><span class="div" style="left: calc(46 / 52 * 100%)"></span></div><span class="wals-val">52 <small>46+6</small></span></div>
+          </div>
+          <div class="wals-row">
+            <div class="wals-label">Ergative<small>like Basque</small></div>
+            <div class="wals-track"><div class="wals-bar sp" style="--w: calc(32 / 98 * (100% - 3.5rem))"></div><span class="wals-val">32</span></div>
+          </div>
+          <div class="wals-row">
+            <div class="wals-label">Tripartite</div>
+            <div class="wals-track"><div class="wals-bar" style="--w: calc(4 / 98 * (100% - 3.5rem))"></div><span class="wals-val">4</span></div>
+          </div>
+          <div class="wals-row">
+            <div class="wals-label">Active</div>
+            <div class="wals-track"><div class="wals-bar" style="--w: calc(4 / 98 * (100% - 3.5rem))"></div><span class="wals-val">4</span></div>
+          </div>
+        </div>
+        <figcaption>Case marking on full nouns in WALS’s sample of 190 languages (Comrie, <a href="https://wals.info/chapter/98">WALS feature 98A</a>). Pronouns and verb agreement are not counted. The accusative bar combines 46 “standard” and 6 “marked-nominative” languages.</figcaption>
+      </figure>
+
+      <p>Just over half the languages, 98 of 190, don’t mark these roles on their nouns at all. Among the 92 that do, the accusative grouping is more common, 52 to 32. But ergative is no curiosity: it’s about a third of them.</p>
+
+      <p class="echo" id="echo" aria-live="polite"></p>
+
+      <div class="d-check" data-check="k-08" data-kind="reveal">
+        <div class="d-check-kind">Explain · think, then reveal</div>
+        <p class="d-check-prompt">Why isn’t English’s grouping (sleeper with seer) more logical than an ergative language’s (sleeper with seen)?</p>
+        <p class="d-caption">Give yourself a moment to answer in your head first.</p>
+        <button type="button" class="d-btn primary" data-reveal>Show an answer</button>
+        <div class="d-feedback model" role="status" hidden>
+          <p>Each grouping picks out something real. English groups by “who the sentence is about, who starts things”: the sleeper and the seer are both the main participant. An ergative language groups by “who the event happens to”: the lone participant and the one acted on are both simply undergoing or being in the event, and the marking goes mainly to the agent of a two-participant verb. In Basque, that’s why the one who arrives and the one who is seen both stay bare, while the one who sees gets -k.</p>
+          <p>Both use the same three roles. They draw the line in different places, and both are common in the world’s languages: 52 accusative and 32 ergative in the WALS sample, while just over half mark neither on nouns. Your instinct from the start of the page is your language’s architecture, not universal logic.</p>
+          <p class="k08-echo"></p>
+        </div>
+      </div>
+
+      <p class="next">Want to keep going? Look up the two small bars in the chart, <strong>tripartite</strong> and <strong>active</strong> systems, and <strong>syntactic ergativity</strong>, where rules of the grammar beyond the endings follow the S+P grouping.</p>
+
+      <figure class="d-figure d-wide" id="f-recap" aria-label="Recap: English groups S with A; Basque groups S with P and marks A with -k">
+        <div class="recap">
+          <div class="card mini mini--acc">
+            <h3>English <small>S + A share a form</small></h3>
+            <div class="mini-grid">
+              <div class="mini-out" style="grid-column: 1; grid-row: 1 / 3;"><span class="mini-out-label">same form</span></div>
+              <span class="chip chip--s" style="grid-column: 1; grid-row: 1;"><span class="chip-word"><span class="chip-role">S</span>She</span></span>
+              <span class="word" style="grid-column: 2 / 4; grid-row: 1;">slept.</span>
+              <span class="chip chip--a" style="grid-column: 1; grid-row: 2;"><span class="chip-word"><span class="chip-role">A</span>She</span></span>
+              <span class="word" style="grid-column: 2; grid-row: 2;">saw</span>
+              <span class="chip chip--p" style="grid-column: 3; grid-row: 2;"><span class="chip-word"><span class="chip-role">P</span>him.</span></span>
+            </div>
+          </div>
+          <div class="card mini mini--erg">
+            <h3>Basque <small>S + P bare, A gets -k</small></h3>
+            <div class="mini-grid">
+              <div class="mini-out" style="grid-column: 2; grid-row: 1 / 3;"><span class="mini-out-label">no ending</span></div>
+              <span class="chip chip--s" style="grid-column: 2; grid-row: 1;"><span class="chip-word"><span class="chip-role">S</span>Martin</span></span>
+              <span class="word" style="grid-column: 3; grid-row: 1;">etorri da.</span>
+              <span class="chip chip--a" style="grid-column: 1; grid-row: 2;"><span class="chip-word"><span class="chip-role">A</span><span>Martin<span class="erg">ek</span></span></span></span>
+              <span class="chip chip--p" style="grid-column: 2; grid-row: 2;"><span class="chip-word"><span class="chip-role">P</span>Diego</span></span>
+              <span class="word" style="grid-column: 3; grid-row: 2;">ikusi du.</span>
+            </div>
+          </div>
+        </div>
+        <figcaption>Same three roles, two places to draw the line.</figcaption>
+      </figure>
+
+      <footer class="colophon">
+        <p><b>Sources.</b> Wikipedia: <a href="https://en.wikipedia.org/wiki/Ergative–absolutive_alignment">“Ergative–absolutive alignment”</a>, <a href="https://en.wikipedia.org/wiki/Basque_grammar">“Basque grammar”</a>, <a href="https://en.wikipedia.org/wiki/Ergative_verb">“Ergative verb”</a>, <a href="https://en.wikipedia.org/wiki/Split_ergativity">“Split ergativity”</a>, <a href="https://en.wikipedia.org/wiki/Kurdish_grammar">“Kurdish grammar”</a>, <a href="https://en.wikipedia.org/wiki/Georgian_grammar">“Georgian grammar”</a>. Basque data set: Aleka Blackwell, <a href="https://ailo.adaptcentre.ie/wp-content/uploads/2020/04/Basqing-in-the-Sun.pdf">“Basquing in the sun”</a>, All-Ireland Linguistics Olympiad. Counts: Bernard Comrie, “Alignment of Case Marking of Full Noun Phrases”, <a href="https://wals.info/chapter/98">WALS Online, chapter 98</a>.</p>
+        <p>“Made-up English” on this page is invented for illustration. Nobody speaks it.</p>
+      </footer>
+    </section>
+  </main>
+</div>
+
+<script src="assets/widget.js"></script>
+<script src="assets/replay.js"></script>
+<script src="assets/toc.js"></script>
+<script src="assets/page.js"></script>
+<script src="widgets/w-alignment-lens/index.js"></script>
+<script src="widgets/w-basque-decoder/index.js"></script>
+<script src="widgets/w-split-switch/index.js"></script>
+</body>
+</html>

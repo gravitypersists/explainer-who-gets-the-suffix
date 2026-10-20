@@ -1,0 +1,190 @@
+/* w-basque-decoder: scoped to its mount. Tokens only; reuses the page's .chip / .chip-word /
+   .chip-role / .chip-gloss / .erg / .word vocabulary (assets/page.css) without restyling it globally. */
+[data-widget="w-basque-decoder"] { --bd-w: 680px; }
+[data-widget="w-basque-decoder"] .bd { max-width: var(--bd-w); margin: 0 auto; font-family: var(--font-sans); color: var(--ink); }
+
+/* ---- head + banner ---- */
+[data-widget="w-basque-decoder"] .bd-head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--sp-2); flex-wrap: wrap; margin-bottom: var(--sp-2); }
+[data-widget="w-basque-decoder"] .bd-title { display: flex; flex-direction: column; gap: 2px; }
+[data-widget="w-basque-decoder"] .bd-kicker { font: 700 12px/1 var(--font-mono); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-3); }
+[data-widget="w-basque-decoder"] .bd-h { font: 800 1.75rem/1.1 var(--font-display); letter-spacing: -.02em; }
+[data-widget="w-basque-decoder"] .bd-h .erg { padding: 0 6px; transform: rotate(-3deg); }
+[data-widget="w-basque-decoder"] .bd-prog { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border: var(--border); border-radius: 999px; background: var(--surface); box-shadow: var(--shadow-hard-sm); }
+[data-widget="w-basque-decoder"] .bd-dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--ink); background: var(--surface); transition: transform var(--dur-2) var(--ease-spring), background var(--dur-2); }
+[data-widget="w-basque-decoder"] .bd-dot.on { background: var(--erg); transform: scale(1.2); }
+[data-widget="w-basque-decoder"] .bd-dot.miss { background: var(--ink-4); }
+[data-widget="w-basque-decoder"] .bd-prog-n { font: 700 13px/1 var(--font-mono); font-variant-numeric: tabular-nums; margin-left: 2px; }
+
+[data-widget="w-basque-decoder"] .bd-banner { display: flex; align-items: center; gap: 10px; margin: 0 0 var(--sp-3); padding: 8px 14px;
+  background: var(--erg); color: var(--erg-ink); border: 2px solid var(--erg-ink); border-radius: var(--radius-1); box-shadow: var(--shadow-hard-sm);
+  font: 700 var(--fs-small)/1.3 var(--font-display); }
+[data-widget="w-basque-decoder"] .bd-banner-ico { flex: none; display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%;
+  background: var(--erg-ink); color: var(--erg); font: 800 13px/1 var(--font-mono); }
+
+/* ---- puzzle card ---- */
+[data-widget="w-basque-decoder"] .bd-list { display: flex; flex-direction: column; gap: var(--sp-3); }
+[data-widget="w-basque-decoder"] .bd-p { position: relative; background: var(--surface); border: var(--border); border-radius: var(--radius-2); box-shadow: var(--shadow-hard);
+  padding: var(--sp-3); transition: box-shadow var(--dur-2), transform var(--dur-2) var(--ease-out); }
+[data-widget="w-basque-decoder"] .bd-p.is-right { box-shadow: 4px 4px 0 var(--good); }
+[data-widget="w-basque-decoder"] .bd-p-head { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-1); flex-wrap: wrap; margin-bottom: var(--sp-1); }
+[data-widget="w-basque-decoder"] .bd-p-num { font: 800 var(--fs-small)/1 var(--font-display); background: var(--ink); color: var(--bg); padding: 6px 12px; border-radius: 999px; }
+[data-widget="w-basque-decoder"] .bd-p-num small { font-weight: 500; opacity: .75; font-size: 12px; }
+[data-widget="w-basque-decoder"] .bd-p-tag { font: 600 12px/1 var(--font-mono); color: var(--ink-3); }
+[data-widget="w-basque-decoder"] .bd-en { margin: var(--sp-1) 0 var(--sp-2); font: italic 500 1.25rem/1.4 var(--font-serif); color: var(--ink); }
+
+/* locked */
+[data-widget="w-basque-decoder"] .bd-locked { display: none; align-items: center; gap: 10px; font: 600 var(--fs-small)/1.3 var(--font-sans); color: var(--ink-3); }
+[data-widget="w-basque-decoder"] .bd-p.is-locked { background: var(--surface-2); box-shadow: none; border-style: dashed; padding-top: var(--sp-2); padding-bottom: var(--sp-2); }
+[data-widget="w-basque-decoder"] .bd-p.is-locked .bd-locked { display: flex; }
+[data-widget="w-basque-decoder"] .bd-p.is-locked .bd-en { color: var(--ink-3); margin-bottom: var(--sp-1); }
+[data-widget="w-basque-decoder"] .bd-p.is-locked .bd-p-num { background: var(--ink-3); }
+[data-widget="w-basque-decoder"] .bd-p.is-locked .bd-body { display: none; }
+[data-widget="w-basque-decoder"] .bd-lock-ico { width: 14px; height: 11px; border: 2px solid currentColor; border-radius: 3px; position: relative; margin-top: 6px; flex: none; }
+[data-widget="w-basque-decoder"] .bd-lock-ico::before { content: ""; position: absolute; left: 1px; right: 1px; bottom: 100%; height: 7px; border: 2px solid currentColor; border-bottom: 0; border-radius: 6px 6px 0 0; }
+
+/* ---- sentence ---- */
+[data-widget="w-basque-decoder"] .bd-sent { display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--sp-2) 12px; padding: var(--sp-2) 0 var(--sp-1); }
+[data-widget="w-basque-decoder"] .bd-chip { position: relative; gap: 4px; }
+[data-widget="w-basque-decoder"] .bd-noun { cursor: pointer; font-size: 1.375rem; min-height: 52px; padding: 8px 14px; position: relative;
+  transition: transform var(--dur-1) var(--ease-out), box-shadow var(--dur-1) var(--ease-out), background var(--dur-2), color var(--dur-2);
+  box-shadow: var(--shadow-hard); -webkit-tap-highlight-color: transparent; }
+[data-widget="w-basque-decoder"] .bd-noun:not(:disabled):hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--ink); }
+[data-widget="w-basque-decoder"] .bd-noun:not(:disabled):active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--ink); }
+[data-widget="w-basque-decoder"] .bd-noun:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+[data-widget="w-basque-decoder"] .bd-noun:disabled { cursor: default; box-shadow: var(--shadow-hard-sm); }
+[data-widget="w-basque-decoder"] .bd-w { display: inline-flex; align-items: center; }
+[data-widget="w-basque-decoder"] .bd-role { display: none; }
+[data-widget="w-basque-decoder"] .is-checked .bd-role { display: inline-grid; animation: bd-pop var(--dur-3) var(--ease-spring) both; }
+
+/* the ending slot: "?" (unset), yellow k (with -k), nothing (bare) */
+[data-widget="w-basque-decoder"] .bd-k { max-width: 2em; overflow: hidden; transform-origin: left center;
+  transition: max-width var(--dur-2) var(--ease-spring), transform var(--dur-2) var(--ease-spring), opacity var(--dur-1), padding var(--dur-2); }
+[data-widget="w-basque-decoder"] .bd-chip:not(.is-k) .bd-k { max-width: 0; padding-left: 0; padding-right: 0; margin: 0; opacity: 0; transform: scale(.3); box-shadow: none; }
+[data-widget="w-basque-decoder"] .bd-q { display: none; margin-left: 4px; min-width: 1.15em; padding: 1px 4px; border: 2px dashed var(--ink-3); border-radius: 4px;
+  font: 800 .875em/1 var(--font-mono); color: var(--ink-3); text-align: center; }
+[data-widget="w-basque-decoder"] .bd-chip.is-unset .bd-q { display: inline-block; animation: bd-wiggle 1.2s ease-in-out 400ms 1 both; }
+[data-widget="w-basque-decoder"] .bd-state { font: 700 11px/1 var(--font-mono); text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); white-space: nowrap; padding: 3px 0; }
+[data-widget="w-basque-decoder"] .bd-chip.is-k .bd-state { color: var(--ink); }
+[data-widget="w-basque-decoder"] .is-checked .bd-chip--s .bd-state, [data-widget="w-basque-decoder"] .is-checked .chip--s .bd-state { color: var(--role-s); }
+[data-widget="w-basque-decoder"] .is-checked .chip--a .bd-state { color: var(--role-a); }
+[data-widget="w-basque-decoder"] .is-checked .chip--p .bd-state { color: var(--role-p); }
+
+/* ✓ / ✗ stamp on a checked chip */
+[data-widget="w-basque-decoder"] .bd-mark { display: none; position: absolute; top: -12px; right: -12px; width: 26px; height: 26px; border-radius: 50%;
+  place-items: center; font: 800 14px/1 var(--font-sans); border: 2px solid var(--ink); background: var(--surface); color: var(--ink); }
+[data-widget="w-basque-decoder"] .is-checked .bd-mark { display: inline-grid; animation: bd-stamp var(--dur-3) var(--ease-spring) both; }
+[data-widget="w-basque-decoder"] .is-ok .bd-mark { background: var(--good); color: var(--surface); border-color: var(--ink); }
+[data-widget="w-basque-decoder"] .is-bad .bd-mark { background: var(--bad); color: var(--surface); }
+[data-widget="w-basque-decoder"] .is-bad .bd-noun { animation: bd-shake 420ms ease-in-out 120ms both; }
+[data-widget="w-basque-decoder"] .bd-chip:nth-child(2) .bd-mark, [data-widget="w-basque-decoder"] .bd-chip:nth-child(2) .bd-role { animation-delay: 120ms; }
+
+/* verb + auxiliary (fixed) */
+[data-widget="w-basque-decoder"] .bd-verb { gap: 4px; }
+[data-widget="w-basque-decoder"] .bd-verb .word { font-size: 1.375rem; line-height: 52px; color: var(--ink); }
+[data-widget="w-basque-decoder"] .bd-aux { border-radius: 4px; padding: 0 2px; transition: background var(--dur-2), box-shadow var(--dur-2); }
+[data-widget="w-basque-decoder"] .bd-aux.is-clued { box-shadow: inset 0 -3px 0 var(--ink); background: var(--surface-2); }
+
+[data-widget="w-basque-decoder"] .bd-clue { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: var(--sp-1) 0 0; padding: 8px 12px;
+  border: 2px dashed var(--ink-3); border-radius: var(--radius-1); font: 500 var(--fs-small)/1.4 var(--font-sans); color: var(--ink-2); }
+[data-widget="w-basque-decoder"] .bd-clue b { font-family: var(--font-ex); color: var(--ink); box-shadow: inset 0 -3px 0 var(--ink); background: var(--surface-2); padding: 0 3px; border-radius: 3px; }
+[data-widget="w-basque-decoder"] .bd-clue-tag { font: 800 11px/1 var(--font-mono); text-transform: uppercase; letter-spacing: .06em; background: var(--ink); color: var(--bg); padding: 4px 8px; border-radius: 999px; }
+
+/* ---- actions ---- */
+[data-widget="w-basque-decoder"] .bd-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: var(--sp-3); }
+[data-widget="w-basque-decoder"] .bd-btn { font: 800 1rem/1 var(--font-display); min-height: var(--tap); padding: 10px 22px; border: var(--border); border-radius: 999px;
+  cursor: pointer; transition: transform var(--dur-1) var(--ease-out), box-shadow var(--dur-1) var(--ease-out), opacity var(--dur-2); }
+[data-widget="w-basque-decoder"] .bd-btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+[data-widget="w-basque-decoder"] .bd-btn--go { background: var(--ink); color: var(--bg); box-shadow: 4px 4px 0 var(--erg); border-color: var(--ink); }
+[data-widget="w-basque-decoder"] .bd-btn--go:not(:disabled):hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--erg); }
+[data-widget="w-basque-decoder"] .bd-btn--go:not(:disabled):active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--erg); }
+[data-widget="w-basque-decoder"] .bd-btn--go:disabled { opacity: .4; cursor: not-allowed; box-shadow: none; }
+[data-widget="w-basque-decoder"] .bd-btn--ghost { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-hard-sm); }
+[data-widget="w-basque-decoder"] .bd-btn--ghost:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0 var(--ink); }
+[data-widget="w-basque-decoder"] .bd-btn--ghost:active { transform: translate(2px, 2px); box-shadow: 0 0 0 var(--ink); }
+[data-widget="w-basque-decoder"] .bd-hint { font: 500 var(--fs-caption)/1.3 var(--font-sans); color: var(--ink-3); }
+[data-widget="w-basque-decoder"] [hidden] { display: none; }
+
+/* ---- feedback (in place) ---- */
+[data-widget="w-basque-decoder"] .bd-fb { margin-top: var(--sp-2); padding: var(--sp-2); border-radius: var(--radius-1); background: var(--surface-2); border: 2px solid var(--ink);
+  font: 400 var(--fs-small)/var(--lh-small) var(--font-sans); outline: none; }
+[data-widget="w-basque-decoder"] .is-right .bd-fb { border-color: var(--good); }
+[data-widget="w-basque-decoder"] .is-wrong .bd-fb { border-color: var(--bad); }
+[data-widget="w-basque-decoder"] .bd-fb:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+[data-widget="w-basque-decoder"] .bd-fb p { margin: 0 0 var(--sp-1); }
+[data-widget="w-basque-decoder"] .bd-fb p:last-child { margin-bottom: 0; }
+[data-widget="w-basque-decoder"] .bd-fb-lead { display: flex; align-items: center; gap: 10px; font: 800 1.125rem/1.2 var(--font-display); }
+[data-widget="w-basque-decoder"] .bd-stamp { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--ink); color: var(--surface); font: 800 16px/1 var(--font-sans); flex: none; }
+[data-widget="w-basque-decoder"] .is-right .bd-stamp { background: var(--good); }
+[data-widget="w-basque-decoder"] .is-wrong .bd-stamp { background: var(--bad); }
+[data-widget="w-basque-decoder"] .bd-fb-ans { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; }
+[data-widget="w-basque-decoder"] .bd-fb-ans > span:first-child { font: 700 11px/1 var(--font-mono); text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); }
+[data-widget="w-basque-decoder"] .bd-ans { font: 700 1.125rem/1.4 var(--font-ex); }
+[data-widget="w-basque-decoder"] .bd-ans .erg { padding: 0 3px; }
+[data-widget="w-basque-decoder"] .bd-fb-list { list-style: none; margin: 0 0 var(--sp-1); padding: 0; display: flex; flex-direction: column; gap: 6px; }
+[data-widget="w-basque-decoder"] .bd-fb-list li { display: flex; gap: 10px; align-items: flex-start; }
+[data-widget="w-basque-decoder"] .bd-fb-list li.bad > span:last-child { font-weight: 600; }
+[data-widget="w-basque-decoder"] .bd-fb-role { flex: none; display: inline-grid; place-items: center; width: 24px; height: 24px; margin-top: 1px; border-radius: 50%;
+  font: 800 12px/1 var(--font-mono); color: var(--role-on); border: 1.5px solid var(--ink); }
+[data-widget="w-basque-decoder"] .r-s { background: var(--role-s); } [data-widget="w-basque-decoder"] .r-a { background: var(--role-a); } [data-widget="w-basque-decoder"] .r-p { background: var(--role-p); }
+[data-widget="w-basque-decoder"] .bd-fb-why { color: var(--ink-2); }
+[data-widget="w-basque-decoder"] .bd-nw { white-space: nowrap; }
+[data-widget="w-basque-decoder"] .bd-fb-why b, [data-widget="w-basque-decoder"] .bd-fb-list b { font-family: var(--font-ex); }
+[data-widget="w-basque-decoder"] .bd-fb-next { font: 700 var(--fs-caption)/1.3 var(--font-mono); color: var(--ink-3); }
+[data-widget="w-basque-decoder"] .bd-fb.is-in { animation: bd-rise var(--dur-3) var(--ease-out) both; }
+[data-widget="w-basque-decoder"] .bd-p.pop { animation: bd-thump 380ms var(--ease-spring) both; }
+[data-widget="w-basque-decoder"] .bd-p.unlock { animation: bd-rise 520ms var(--ease-spring) both; }
+[data-widget="w-basque-decoder"] .bd-chip.boing .bd-noun { animation: bd-boing 360ms var(--ease-spring); }
+
+/* ---- summary ---- */
+[data-widget="w-basque-decoder"] .bd-done { position: relative; overflow: hidden; margin-top: var(--sp-3); padding: var(--sp-3); text-align: center;
+  background: var(--ink); color: var(--bg); border: var(--border); border-radius: var(--radius-2); box-shadow: 4px 4px 0 var(--erg); }
+[data-widget="w-basque-decoder"] .bd-done[hidden] { display: none; }
+[data-widget="w-basque-decoder"] .bd-done.is-in { animation: bd-rise 600ms var(--ease-spring) both; }
+[data-widget="w-basque-decoder"] .bd-done-kicker { margin: 0 0 6px; font: 700 12px/1 var(--font-mono); text-transform: uppercase; letter-spacing: .08em; opacity: .8; }
+[data-widget="w-basque-decoder"] .bd-done-line { margin: 0 0 var(--sp-2); font: 800 1.5rem/1.25 var(--font-display); letter-spacing: -.01em; position: relative; z-index: 1; }
+[data-widget="w-basque-decoder"] .bd-done-line .erg { padding: 0 5px; }
+[data-widget="w-basque-decoder"] .bd-done-roles { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; position: relative; z-index: 1; }
+[data-widget="w-basque-decoder"] .bd-grp { position: relative; display: inline-flex; flex-direction: column; align-items: center; gap: 6px; padding: 10px 14px 8px; border: 3px dashed var(--grp-sp); border-radius: 14px; }
+[data-widget="w-basque-decoder"] .bd-grp--a { border-color: var(--erg); }
+[data-widget="w-basque-decoder"] .bd-grp-lab { white-space: nowrap; font: 700 11px/1.2 var(--font-mono); }
+[data-widget="w-basque-decoder"] .bd-grp-rb { display: inline-flex; gap: 8px; }
+[data-widget="w-basque-decoder"] .bd-rb { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; font: 800 15px/1 var(--font-mono);
+  color: var(--role-on); border: 2px solid var(--bg); }
+[data-widget="w-basque-decoder"] .bd-done-more { margin: var(--sp-2) 0 0; font: 500 var(--fs-caption)/1.3 var(--font-sans); opacity: .85; position: relative; z-index: 1; }
+[data-widget="w-basque-decoder"] .bd-confetti { position: absolute; left: 50%; top: 45%; width: 0; height: 0; pointer-events: none; }
+[data-widget="w-basque-decoder"] .bd-confetti i { position: absolute; width: 10px; height: 6px; border-radius: 2px; left: -5px; top: -3px; opacity: 0;
+  animation: bd-confetti 1.1s var(--ease-out) var(--d) both; }
+[data-widget="w-basque-decoder"] .bd-confetti i.r-k { background: var(--erg); }
+
+[data-widget="w-basque-decoder"] .bd-foot { display: flex; justify-content: flex-end; margin-top: var(--sp-2); }
+[data-widget="w-basque-decoder"] .bd-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; margin: 0; }
+
+/* ---- narrow container ---- */
+[data-widget="w-basque-decoder"].bd-narrow .bd-p { padding: var(--sp-2); }
+[data-widget="w-basque-decoder"].bd-narrow .bd-h { font-size: 1.375rem; }
+[data-widget="w-basque-decoder"].bd-narrow .bd-en { font-size: 1.125rem; }
+[data-widget="w-basque-decoder"].bd-narrow .bd-noun { font-size: 1.1875rem; padding: 8px 12px; min-height: 48px; }
+[data-widget="w-basque-decoder"].bd-narrow .bd-verb .word { font-size: 1.1875rem; line-height: 48px; }
+[data-widget="w-basque-decoder"].bd-narrow .bd-sent { gap: 14px 10px; }
+[data-widget="w-basque-decoder"].bd-narrow .bd-actions .bd-btn { flex: 1 1 100%; }
+[data-widget="w-basque-decoder"].bd-narrow .bd-hint { flex: 1 1 100%; text-align: center; }
+[data-widget="w-basque-decoder"].bd-narrow .bd-done-line { font-size: 1.25rem; }
+[data-widget="w-basque-decoder"].bd-narrow .bd-foot .bd-btn { flex: 1 1 100%; }
+
+/* ---- motion ---- */
+@keyframes bd-pop { 0% { transform: scale(0); } 100% { transform: scale(1); } }
+@keyframes bd-stamp { 0% { transform: scale(2.2) rotate(-20deg); opacity: 0; } 100% { transform: scale(1) rotate(0); opacity: 1; } }
+@keyframes bd-boing { 0% { transform: scale(1); } 35% { transform: scale(1.08, .92); } 70% { transform: scale(.97, 1.04); } 100% { transform: scale(1); } }
+@keyframes bd-shake { 0%, 100% { transform: translateX(0); } 20% { transform: translateX(-4px); } 40% { transform: translateX(4px); } 60% { transform: translateX(-3px); } 80% { transform: translateX(2px); } }
+@keyframes bd-thump { 0% { transform: scale(1); } 40% { transform: scale(1.012); } 100% { transform: scale(1); } }
+@keyframes bd-rise { 0% { opacity: 0; transform: translateY(10px); } 100% { opacity: 1; transform: none; } }
+@keyframes bd-wiggle { 0%, 80%, 100% { transform: rotate(0); } 85% { transform: rotate(-8deg); } 90% { transform: rotate(8deg); } 95% { transform: rotate(-4deg); } }
+@keyframes bd-confetti {
+  0% { opacity: 1; transform: translate(0, 0) rotate(0); }
+  80% { opacity: 1; }
+  100% { opacity: 0; transform: translate(var(--dx), calc(var(--dy) + 40px)) rotate(var(--rot)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-widget="w-basque-decoder"] *, [data-widget="w-basque-decoder"] { animation: none !important; transition: none !important; }
+  [data-widget="w-basque-decoder"] .bd-confetti { display: none; }
+}

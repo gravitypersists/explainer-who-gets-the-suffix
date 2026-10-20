@@ -1,0 +1,11 @@
+segments:
+  s-01   Which two belong together?
+  s-02   Three roles, and English's grouping
+  s-03   Flip it: an "ergative English"
+  s-04   Real ergativity: decode some Basque
+  s-05   Not all-or-nothing: split ergativity
+  s-06   How common is each, and which is "logical"?
+objectives: 3 · segments: 6 · reader's time: 8 min
+widgets: w-alignment-lens (high), w-basque-decoder (high), w-split-switch (low)
+checks: 8 · acceptance criteria: 13
+RESULT: PASS

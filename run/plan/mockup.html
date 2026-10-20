@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mockup: Who Gets the Suffix?</title>
+<style>
+  :root {
+    --bg: #fafaf9; --panel: #fff; --ink: #1c1917; --ink-2: #57534e; --ink-3: #a8a29e;
+    --line: #e7e5e4; --fill: #f5f5f4; --accent: #2563eb; --warn: #b45309; --ok: #15803d;
+    --s1: 8px; --s2: 16px; --s3: 24px; --s4: 32px; --s6: 48px;
+    --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+    --sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0c0a09; --panel:#1c1917; --ink:#fafaf9; --ink-2:#d6d3d1; --ink-3:#78716c;
+            --line:#292524; --fill:#292524; --accent:#60a5fa; --warn:#f59e0b; --ok:#4ade80; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.5 var(--sans); }
+  .bar { position: sticky; top: 0; z-index: 2; display: flex; gap: var(--s2); align-items: center;
+         flex-wrap: wrap; padding: var(--s1) var(--s2); background: var(--panel); border-bottom: 1px solid var(--line);
+         font: 13px/1.4 var(--mono); }
+  .bar b { font-weight: 600; }
+  .bar .sp { flex: 1; }
+  .bar button { font: inherit; padding: 4px 8px; border: 1px solid var(--line); background: var(--fill);
+                color: var(--ink); border-radius: 4px; cursor: pointer; }
+  .bar button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+  main { max-width: 1040px; margin: 0 auto; padding: var(--s4) var(--s2) var(--s6); }
+  body.mobile main { max-width: 360px; padding-left: 0; padding-right: 0; }
+  body.mobile .seg { grid-template-columns: 1fr; }
+  h1 { font-size: 28px; line-height: 1.2; margin: 0 0 var(--s1); }
+  h2 { font: 600 13px/1.4 var(--mono); letter-spacing: .04em; text-transform: uppercase; color: var(--ink-2);
+       margin: var(--s6) 0 var(--s2); }
+  .meta { color: var(--ink-2); font-size: 14px; }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: var(--s2); }
+  .seg { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: var(--s2);
+         margin-bottom: var(--s3); }
+  .seg header { grid-column: 1 / -1; display: flex; gap: var(--s1); align-items: baseline; flex-wrap: wrap; }
+  .seg header .id { font: 12px var(--mono); color: var(--ink-3); }
+  .seg header h3 { margin: 0; font-size: 18px; }
+  .tag { font: 11px/1 var(--mono); padding: 3px 6px; border-radius: 3px; background: var(--fill); color: var(--ink-2); }
+  .intent { font-style: italic; color: var(--ink-2); margin: 0 0 var(--s1); }
+  .prose { color: var(--ink-2); font-size: 14px; }
+  .prose p { margin: 0 0 var(--s1); }
+  .fig { min-height: 160px; border: 2px dashed var(--ink-3); border-radius: 8px; background: var(--fill);
+         padding: var(--s2); font-size: 14px; color: var(--ink-2); display: flex; flex-direction: column; gap: var(--s1); }
+  .fig .kind { font: 600 11px var(--mono); letter-spacing: .04em; text-transform: uppercase; color: var(--ink); }
+  .check { border-left: 3px solid var(--accent); padding: var(--s1) var(--s2); background: var(--panel); margin-top: var(--s1); font-size: 14px; }
+  .check .kind { font: 600 11px var(--mono); text-transform: uppercase; color: var(--accent); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: var(--s1); border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font: 600 12px var(--mono); color: var(--ink-2); }
+  .needs-user { color: var(--warn); font-weight: 600; }
+  .license { color: var(--ok); }
+  .warn { color: var(--warn); }
+  @media (max-width: 720px) { .seg { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="bar">
+  <b>MOCKUP</b><span>Who Gets the Suffix?</span><span class="sp"></span>
+  <button type="button" id="vw-desk" aria-pressed="true">desktop</button>
+  <button type="button" id="vw-mob" aria-pressed="false">mobile 360</button>
+</div>
+<main>
+  <section id="overview">
+    <h1>Who Gets the Suffix?</h1>
+    <p class="meta">For anybody who's curious, no linguistics background (novice) · about 8 minutes of the reader's time · scrollytelling with three interactive moments · ToC: yes (desktop rail, collapsed on mobile)</p>
+    <div class="panel">
+      <p><b>Standfirst (draft):</b> "She slept." "She saw him." Your gut says the sleeper and the seer are the same kind of thing. In about a third of the languages that mark case on nouns, grammar disagrees. Eight minutes, a few taps, one small Basque ending.</p>
+      <p><b>Shape:</b> The page is about one distinction: who gets grouped with whom. So its core is a single "alignment lens" canvas, and its highlight visibly jumps from S+A (English) to S+P (made-up "ergative English", then Basque) as you scroll. After that the reader decodes real Basque by tapping -k on and off, flips a Hindi tense switch, and reads a WALS chart. Every flashy element (the morphing outline, the snapping -k, the growing bars) does a teaching job. I rejected a free-form sandbox, because novices need the S/A/P names first, and a plain article, because the flip is far stronger seen than read.</p>
+      <p><b>Visual identity:</b> bold and playful (the builder's call). One fixed rule: three role colours, S, A and P, plus one accent for the ending "-k". They mean the same thing in every figure, and each chip also carries its letter.</p>
+      <p><b>Objectives:</b></p>
+      <ul>
+        <li><b>o-1</b> Explain S, A and P with English sentences, and show that English pronouns group S with A. <span class="meta">checks: k-01, k-02, k-03</span></li>
+        <li><b>o-2</b> Given Basque sentences, predict which nouns take ergative -k and which stay bare (absolutive): S groups with P. <span class="meta">checks: k-04, k-05, k-06</span></li>
+        <li><b>o-3</b> Explain that ergativity is often partial (split), and that neither grouping is "more logical". <span class="meta">checks: k-07, k-08</span></li>
+      </ul>
+      <p class="meta">check_plan: PASS, no warnings (3 objectives, 6 segments, 3 widgets, 8 checks, 13 acceptance criteria).</p>
+      <p class="meta"><b>Accuracy notes carried into the plan:</b> The request lists "Basque, Kurdish, or Georgian" as ergative, but Kurdish and Georgian are split systems, and the page says so (s-05). Every Basque sentence comes from a verified, published set. Nouns in the puzzles are marked singular, because Basque "-ak" can also mean plural.</p>
+    </div>
+  </section>
+
+  <section id="segments">
+    <h2>Segments</h2>
+    <p class="meta">Prose is draft wording: it shows what each segment says and in what order. The final prose is written for the reader at build time. Check prompts, options and answers are final.</p>
+
+    <article class="seg" id="s-01">
+      <header>
+        <span class="id">s-01</span><h3>Which two belong together?</h3>
+        <span class="tag">hook → predict</span><span class="tag">o-1</span>
+      </header>
+      <div>
+        <p class="intent">Get the reader to commit to their own instinct before any jargon, so the page can overturn it later.</p>
+        <div class="prose">
+          <p>"Three people, two sentences. Tap the two that feel like the same kind of thing."</p>
+          <p>No terms yet. The response appears in place and the pick is remembered (in page memory only) for the ending.</p>
+        </div>
+        <div class="check">
+          <div class="kind">PREDICT · k-01</div>
+          Tap the two that feel like "the same kind of thing": the sleeper ("She slept"), the one who sees ("She saw him"), or the one who is seen ("She saw him").<br>
+          Options: sleeper + seer / sleeper + seen / seer + seen. There's no wrong answer. Feedback: "Hold on to your pick. Most English speakers choose the sleeper and the seer, because English says 'she' for both. Some languages choose the sleeper and the seen."
+        </div>
+      </div>
+      <div class="fig">
+        <span class="kind">FIGURE · three tap tiles</span>
+        Three big neutral tiles. Desktop: in a row. 360px: stacked, each ≥ 64px tall. Tile 1 "<b>She</b> slept." (the sleeper). Tile 2 "<b>She</b> saw him." (the one who sees). Tile 3 "She saw <b>him</b>." (the one who is seen). Tapping two draws a lasso around them. No role colours yet.
+      </div>
+    </article>
+
+    <article class="seg" id="s-02">
+      <header>
+        <span class="id">s-02</span><h3>Three roles, and English's grouping</h3>
+        <span class="tag">B1 step-locked · concrete → named → apply</span><span class="tag">o-1</span>
+      </header>
+      <div>
+        <p class="intent">Pre-train S, A and P as three chunks on familiar English, and show that English gives S and A the same pronoun form.</p>
+        <div class="prose">
+          <p>Step 1: "Look at who's in each sentence. 'She slept' has one participant. 'She saw him' has two: one who acts and one who's acted on."</p>
+          <p>Step 2: The chips gain letters and colours. "Linguists call these <b>S</b> (the single participant), <b>A</b> (the agent) and <b>P</b> (the patient, the one acted on)."</p>
+          <p>Step 3: The outline wraps S and A. "English uses 'she' for both S and A, and switches to 'him/her' only for P. That grouping is called <b>nominative-accusative</b>." Collapsed aside: "Why not just say subject and object?"</p>
+        </div>
+        <div class="check">
+          <div class="kind">APPLY · k-02</div>
+          "He fell." and "He pushed her." Which pronoun is S, which is A, which is P, and which two share a form?<br>
+          Options: A) S = He, A = He, P = her: S and A share "he" · B) S = He, A = her, P = He: S and P share "he" · C) S = her, A = He, P = He. Correct: A. Feedback explains that the role comes from who does what to whom.
+        </div>
+      </div>
+      <div class="fig">
+        <span class="kind">WIDGET · w-alignment-lens · complexity high · state "English"</span>
+        Sticky canvas, two rows. Row 1 "She slept." with one chip "She" (S, subject form). Row 2 "She saw him." with chips "She" (A, subject form) and "him" (P, object form). A rounded outline encloses S + A and is labelled "same form" on the outline itself. A mode label in the corner reads "English". Step 1 shows no letters; at step 2 the letters and colours fade in. An aria-live line describes the grouping. Mobile: sticky at the top, ≤ 55vh, steps scroll below, and later a 3-segment mode switch under the rows.
+      </div>
+    </article>
+
+    <article class="seg" id="s-03">
+      <header>
+        <span class="id">s-03</span><h3>Flip it: an "ergative English"</h3>
+        <span class="tag">predict → reveal · contrasting case</span><span class="tag">o-1</span>
+      </header>
+      <div>
+        <p class="intent">Let the reader feel S+P grouping with their own pronouns, and flag clearly that this English is made up.</p>
+        <div class="prose">
+          <p>"Now imagine an English that draws the line somewhere else, grouping the sleeper with the one who is seen."</p>
+          <p>After the commit, the outline slides off A onto P, and "She slept" morphs into "Her slept". One sentence: "Same three roles, different grouping. Real ergative languages usually do something neater: they leave S and P alone and give the agent an extra ending. Here's one."</p>
+        </div>
+        <div class="check">
+          <div class="kind">PREDICT · k-03 (gates the lens morph)</div>
+          Imagine an English that groups the sleeper with the one who is seen, not with the seer. How would "She slept" come out?<br>
+          Options: A) She slept. · B) Her slept. · C) She slept her. Correct: B. The tempting answer is A (real English).
+        </div>
+      </div>
+      <div class="fig">
+        <span class="kind">WIDGET · w-alignment-lens · state "Ergative English (made up)"</span>
+        Same canvas. Row 1 now reads "Her slept." (S, object form). Row 2 is unchanged: "She saw him." The outline animates (about 500ms) from S+A to S+P, labelled "same form". A persistent tag reads "Made-up English: no one speaks this". A mode switch (English / Ergative English) lets the reader flip back and forth. The morph is reader-triggered and respects reduced motion.
+      </div>
+    </article>
+
+    <article class="seg" id="s-04">
+      <header>
+        <span class="id">s-04</span><h3>Real ergativity: decode some Basque</h3>
+        <span class="tag">B3 worked → contrast → faded completion</span><span class="tag">o-2</span>
+      </header>
+      <div>
+        <p class="intent">Show that Basque leaves S and P bare and marks A with -k, then have the reader produce the forms. Confront "it's just a passive".</p>
+        <div class="prose">
+          <p>Lens, last state: "Martin etorri da." 'Martin has arrived.' / "Martin<b>ek</b> Diego ikusi du." 'Martin has seen Diego.' "Same Martin. He gets an ending only when he does something to someone. Diego, the one seen, stays bare, just like Martin who arrived."</p>
+          <p>Rule, stated once: "The doer of a two-participant verb gets <b>-k</b> (-ek after a consonant): the <b>ergative</b>. Everyone else stays bare: the <b>absolutive</b>. S and P together, A on its own."</p>
+          <p>Umea table, then the decoder. Collapsed asides: "Wait, couldn't -ak mean plural?" (gizonak = 'the man' as doer, or 'the men') and "Met 'ergative verbs' in English class?" (verbs like <i>break</i> use the word in a different sense, and having them doesn't make English ergative).</p>
+        </div>
+        <div class="check">
+          <div class="kind">APPLY · k-04 (decoder puzzle 1)</div>
+          'The woman has come.' → [Emakumea | Emakumeak] etorri da. Correct: <b>Emakumea</b>. Feedback introduces clue 2: "da" means nobody has -k.
+        </div>
+        <div class="check">
+          <div class="kind">APPLY · k-05 (decoder puzzles 2–3)</div>
+          'The woman has read the book.' → [Emakumea | Emakumeak] [liburua | liburuak] irakurri du. Correct: <b>Emakumeak liburua</b>.<br>
+          'The man has seen the woman.' → [Gizona | Gizonak] [emakumea | emakumeak] ikusi du. Correct: <b>Gizonak emakumea</b>.<br>
+          Feedback names the error: -k on P means "you grouped P with A, English-style"; a bare doer means "check the du".
+        </div>
+        <div class="check">
+          <div class="kind">COMPARE · k-06</div>
+          Someone says "Martinek Diego ikusi du" is really a passive, like "Diego was seen by Martin", since Martin gets the extra marking. Are they right?<br>
+          Options: A) Yes: marking the doer means it's a passive · B) No: it's an ordinary active sentence, 'Martin has seen Diego' · C) Only in the past tense. Correct: B. Tempting: A.
+        </div>
+      </div>
+      <div class="fig">
+        <span class="kind">FIGURE · f-umea contrast table + WIDGET · w-basque-decoder · complexity high</span>
+        <b>Table (3 rows, the umea column aligned vertically):</b> "Umea etorri da." 'The child has come.' (umea = S, bare) · "Zu<b>k</b> umea ikusi duzu kalean." 'You have seen the child in the street.' (zuk = A with -k, umea = P, bare) · "Ume<b>ak</b> ez du gizona ikusi." 'The child has not seen the man.' (umeak = A with -k, gizona = P, bare). -k in the accent colour throughout.<br>
+        <b>Decoder:</b> a banner reads "Every noun here is singular." For each puzzle: the English line on top, then Basque chips with a small gloss under each. Tap a noun to toggle its ending (it snaps on and off with a little bounce), then press Check. Each chip then gets its S/A/P letter and colour, and a one-line reason appears in place. Puzzles 2 and 3 stay locked until the one before is checked. A da/du hint chip appears from puzzle 2 on. After puzzle 3: "S and P: bare. A: -k. That's ergative-absolutive." Mobile: chips wrap, full-width Check, about 480px per puzzle.
+      </div>
+    </article>
+
+    <article class="seg" id="s-05">
+      <header>
+        <span class="id">s-05</span><h3>Not all-or-nothing: split ergativity</h3>
+        <span class="tag">predict → toggle → B4 cards</span><span class="tag">o-3</span>
+      </header>
+      <div>
+        <p class="intent">Show that ergativity is often partial, and correct the "Basque, Kurdish, Georgian are all ergative" summary.</p>
+        <div class="prose">
+          <p>"Plenty of languages are ergative only some of the time. Hindi-Urdu is a good place to watch it switch on."</p>
+          <p>After the toggle: "Same boy, same book. Only the tense changed, and the ergative marker switched on. This is <b>split ergativity</b>."</p>
+          <p>Then three cards: "You may have read that Kurdish and Georgian are ergative languages. That's half true."</p>
+        </div>
+        <div class="check">
+          <div class="kind">PREDICT · k-07 (unlocks the switch)</div>
+          Hindi-Urdu has an ergative ending, -nē. "The boy sells a book." vs "The boy has sold a book." Where does -nē show up on the boy?<br>
+          Options: A) In both · B) Only in "has sold" · C) Only in "sells" · D) In neither. Correct: B. Tempting: A (all-or-nothing).
+        </div>
+      </div>
+      <div class="fig">
+        <span class="kind">WIDGET · w-split-switch · complexity low + FIGURE · three language cards</span>
+        <b>Switch:</b> a two-segment control [sells | has sold]. "sells": laṛkā · pustak · bēctā hai (boy · book · sells), with the agent chip "A: no marker". "has sold": laṛkē-<b>nē</b> · pustak · bēcī hai (boy-ERG · book · has sold), with -nē in the accent colour. Footnote: the noun itself shifts laṛkā → laṛkē. Locked until k-07.<br>
+        <b>Cards (side by side; stacked at 360px; not a carousel):</b> Kurdish: "accusative in the present, ergative in past-tense transitives". Georgian: "ergative ('narrative') case mainly in the past (aorist) series, and even then some lone-participant verbs take it: it sorts verbs by agency". Dyirbal (Australia): "nouns ergative, but 'I' and 'you' accusative". Each card has a mini on/off badge for where ergativity applies.
+      </div>
+    </article>
+
+    <article class="seg" id="s-06">
+      <header>
+        <span class="id">s-06</span><h3>How common is each, and which is "logical"?</h3>
+        <span class="tag">chart → callback → explain → recap</span><span class="tag">o-3</span>
+      </header>
+      <div>
+        <p class="intent">Give the real numbers, return to the reader's opening pick, and land the point that both groupings are architectures, not logic.</p>
+        <div class="prose">
+          <p>"Out of 190 languages surveyed for case on nouns, most mark none of these roles at all. Of those that do, accusative edges out ergative, 52 to 32."</p>
+          <p>Callback: "At the start you grouped <i>[the sleeper and the seer]</i>. That's English's grammar talking."</p>
+          <p>Close: the recap strip, plus one line naming what's beyond this page: tripartite and active systems (both in the chart), and syntactic ergativity, where grammar rules beyond endings follow the S+P grouping.</p>
+        </div>
+        <div class="check">
+          <div class="kind">EXPLAIN · k-08 (think, then reveal)</div>
+          Why isn't English's grouping (sleeper with seer) more logical than Basque's (sleeper with seen)?<br>
+          Model answer: each grouping picks out something real. English groups the main participant who starts things. Basque groups whoever the event simply happens to, and marks only an agent acting on someone else. Same three roles, different line, and both are common.
+        </div>
+      </div>
+      <div class="fig">
+        <span class="kind">FIGURE · f-wals bar chart + recap strip</span>
+        Horizontal bars, sorted, with counts at the bar ends and no legend: No case difference on nouns 98 · Accusative 52 (a thin divider splitting 46 + 6) · Ergative 32 · Tripartite 4 · Active 4. The Accusative bar is in the S+A group colour and the Ergative bar in the S+P colour. The bars grow once on scroll-in (flair, ≤ 1.5s). Caption: "Case marking on full nouns, WALS sample of 190 languages (feature 98A). Pronouns and verb agreement not counted."<br>
+        <b>Recap strip:</b> two mini lens panels side by side (stacked on mobile): English, with S+A outlined, and Basque, with S+P outlined and -k on A.
+      </div>
+    </article>
+  </section>
+
+  <section id="cuts">
+    <h2>Cut list (researched, deliberately left out)</h2>
+    <table>
+      <thead><tr><th>What</th><th>Why it's out</th><th>Cost to add back</th></tr></thead>
+      <tbody>
+        <tr><td>Ergativity hotbeds (Australia, Caucasus; rare in Europe and Africa)</td><td>Geography serves no objective; a map needs a redraw or licence check</td><td>One caption sentence (needs a claim) or a redrawn map</td></tr>
+        <tr><td>Passive-origin theories</td><td>Historical origins are out of scope; k-06 covers the resemblance</td><td>A collapsed aside (needs a claim)</td></tr>
+        <tr><td>Georgian split-S detail (sneeze, motion and weather verbs)</td><td>A third alignment type is too much for 8 minutes; the card hints at it</td><td>A mini-example; needs verified sentences</td></tr>
+        <tr><td>Hindi verb agreement flipping to "book"</td><td>Competes with -nē in the same switch</td><td>One extra label on the verb chip</td></tr>
+        <tr><td>Basque as possibly split-S (unergatives take -k)</td><td>Unverified; puzzles avoid those verbs, and the prose says "doer of a two-participant verb"</td><td>A collapsed note after research</td></tr>
+        <tr><td>Kurmanji vs Sorani mechanisms</td><td>Not verified</td><td>Research plus one line on the card</td></tr>
+        <tr><td>Syntactic ergativity, tripartite and active in depth</td><td>Out of scope per the brief (mentioned once)</td><td>A segment each</td></tr>
+        <tr><td>Inuktitut, Tongan, Chechen, Tibetan and others</td><td>No verified sentences</td><td>A "where else" line (needs a claim)</td></tr>
+      </tbody>
+    </table>
+
+    <h2>If it runs long (in the plan now; cut in this order)</h2>
+    <p class="meta">The prose is written at whatever length clarity needs. If the built page runs long, you pick cuts from here.</p>
+    <table>
+      <thead><tr><th>#</th><th>Cut</th><th>What the reader loses</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Georgian and Dyirbal cards in s-05 (keep Kurdish)</td><td>The noun-type split and the Georgian correction; o-3 is still met via Hindi and Kurdish</td></tr>
+        <tr><td>2</td><td>k-06, the passive check</td><td>The direct confrontation of "ergative = passive" (m-02); one clause stays in prose</td></tr>
+        <tr><td>3</td><td>The two collapsed asides in s-04</td><td>The "ergative verbs" correction (m-03) and the -ak explanation; the singular banner stays</td></tr>
+        <tr><td>4</td><td>Decoder puzzle 2</td><td>One practice step in the fade</td></tr>
+        <tr><td>5</td><td>s-03, the "ergative English" bridge (lens goes straight to Basque)</td><td>The felt S+P regrouping with the reader's own pronouns, and k-03; the biggest loss to the "aha"</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="assets">
+    <h2>Third-party assets</h2>
+    <table>
+      <thead><tr><th>#</th><th>Asset</th><th>Used in</th><th>Licence</th><th>Clearance</th></tr></thead>
+      <tbody>
+        <tr><td>—</td><td>None. All figures are drawn: the lens, the umea table, the decoder, the Hindi switch, the cards, and the WALS chart redrawn from c-07's counts</td><td>—</td><td>—</td><td class="license">nothing to clear</td></tr>
+      </tbody>
+    </table>
+    <p class="meta">No third-party assets. The WALS counts are cited as a source in the chart caption; the WALS map image is not used.</p>
+  </section>
+</main>
+<script>
+  const d = document.getElementById('vw-desk'), m = document.getElementById('vw-mob');
+  function set(mobile) {
+    document.body.classList.toggle('mobile', mobile);
+    d.setAttribute('aria-pressed', String(!mobile)); m.setAttribute('aria-pressed', String(mobile));
+  }
+  d.onclick = () => set(false); m.onclick = () => set(true);
+</script>
+</body>
+</html>
