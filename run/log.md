@@ -241,3 +241,11 @@ Stage: deliver → **done**
 ### 2026-10-20T15:33:21-04:00 · orchestrator · user_decision
 User authorized deploy to GitHub Pages at gravitypersists/explainer-who-gets-the-suffix
 - [run/decisions.md](run/decisions.md)
+
+### 2026-10-20T15:36:32-04:00 · verify · gate
+Gate (page) round 10: **PASS**. Reading ~6.6 min (brief: ~8 min; reported, not gated); 340 KB, 20 requests.
+- [gate/page-round-10.json](gate/page-round-10.json)
+- [screenshots/page-round-10](screenshots/page-round-10)
+
+### 2026-10-20T15:36:32-04:00 · orchestrator · post_delivery_change
+User request: added Opus 5.5 / didactician attribution line to site footer and README; switched Pages workflow to GitHub Actions deploy (orchestrator edit to site/, one footer line)

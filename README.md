@@ -35,7 +35,11 @@ Any static file server works. Fonts load from Google Fonts and fall back to syst
 
 ## Deployment
 
-Every push to `main` that touches `site/` runs `.github/workflows/pages.yml`, which publishes `site/` to the `gh-pages` branch. GitHub Pages serves that branch.
+Every push to `main` that touches `site/` runs `.github/workflows/pages.yml`, which deploys `site/` to GitHub Pages (source: GitHub Actions).
+
+## Credits
+
+Built by Claude Opus 5.5 at medium effort with the [didactician](https://github.com/gravitypersists/didactician) skill, which ran the research, planning, build and review pipeline recorded in `run/`.
 
 ## License
 

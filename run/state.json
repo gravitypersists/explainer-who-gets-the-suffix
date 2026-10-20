@@ -267,13 +267,14 @@
       [],
       [],
       [],
+      [],
       []
     ],
     "gate:w-basque-decoder": [
       [
         "console: [360, 768, 1280px] Failed to load resource: the server responded with a status of 404 (Not Found)",
         "replay: [360, 768, 1280px] span.chip.bd-chip > button.chip-word.bd-noun:nth-child(1) > span.bd-w:nth-child(2) > span.bd-q:nth-ch",
-        "resources: [360, 768, 1280px] http://127.0.0.1:52594/__didactician/site/widgets/w-alignment-lens/index.css \u2192 HTTP 404"
+        "resources: [360, 768, 1280px] http://127.0.0.1:52594/__didactician/site/widgets/w-alignment-lens/index.css → HTTP 404"
       ],
       []
     ],
