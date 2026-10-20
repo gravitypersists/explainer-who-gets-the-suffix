@@ -249,3 +249,11 @@ Gate (page) round 10: **PASS**. Reading ~6.6 min (brief: ~8 min; reported, not g
 
 ### 2026-10-20T15:36:32-04:00 · orchestrator · post_delivery_change
 User request: added Opus 5.5 / didactician attribution line to site footer and README; switched Pages workflow to GitHub Actions deploy (orchestrator edit to site/, one footer line)
+
+### 2026-10-20T15:38:24-04:00 · verify · gate
+Gate (page) round 11: **PASS**. Reading ~6.6 min (brief: ~8 min; reported, not gated); 384 KB, 20 requests.
+- [gate/page-round-11.json](gate/page-round-11.json)
+- [screenshots/page-round-11](screenshots/page-round-11)
+
+### 2026-10-20T15:38:24-04:00 · orchestrator · post_delivery_change
+User request: added link to source repo in site footer
